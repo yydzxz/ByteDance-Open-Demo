@@ -1,6 +1,7 @@
 package com.yyd.bytedance.open.demo.service;
 
 import cn.hutool.json.JSONUtil;
+import com.yyd.bytedance.open.demo.config.ByteDanceOpenProperties;
 import com.yyd.common.error.ByteDanceError;
 import com.yyd.common.error.ByteDanceErrorException;
 import com.yyd.common.error.ByteDanceMiniProgramErrorMsgEnum;
@@ -36,6 +37,9 @@ public class ByteDanceOpenServiceDemo implements IByteDanceOpenService {
     @Autowired
     private RedissonClient redissonClient;
 
+    @Autowired
+    private ByteDanceOpenProperties byteDanceOpenProperties;
+
     private IByteDanceRedisOps redissonByteDanceRedisOps;
 
     @PostConstruct
@@ -46,10 +50,10 @@ public class ByteDanceOpenServiceDemo implements IByteDanceOpenService {
         byteDanceOpenComponentService = new ByteDanceOpenComponentServiceImpl(this);
 
         ByteDanceOpenInRedisConfigStorage inRedisConfigStorage = new ByteDanceOpenInRedisConfigStorage(redissonByteDanceRedisOps, "yourprefix");
-        inRedisConfigStorage.setComponentAppId("Your ComponentAppId");
-        inRedisConfigStorage.setComponentAppSecret("Your ComponentAppSecret");
-        inRedisConfigStorage.setComponentToken("Your ComponentToken");
-        inRedisConfigStorage.setComponentAesKey("Your ComponentAesKey");
+        inRedisConfigStorage.setComponentAppId(byteDanceOpenProperties.getComponentAppId());
+        inRedisConfigStorage.setComponentAppSecret(byteDanceOpenProperties.getComponentSecret());
+        inRedisConfigStorage.setComponentToken(byteDanceOpenProperties.getComponentToken());
+        inRedisConfigStorage.setComponentAesKey(byteDanceOpenProperties.getComponentAesKey());
         setByteDanceOpenConfigStorage(inRedisConfigStorage);
     }
     @Override
