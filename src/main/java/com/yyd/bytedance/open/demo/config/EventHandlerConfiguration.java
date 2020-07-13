@@ -1,14 +1,14 @@
 package com.yyd.bytedance.open.demo.config;
 
 
+import com.github.yydzxz.common.ByteDanceMessageInRedisDuplicateChecker;
+import com.github.yydzxz.common.IByteDanceMessageDuplicateChecker;
+import com.github.yydzxz.common.redis.IByteDanceRedisOps;
+import com.github.yydzxz.open.api.ByteDanceOpenMessageRouter;
+import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
 import com.yyd.bytedance.open.demo.handler.LogHandler;
 import com.yyd.bytedance.open.demo.handler.MsgTypeTicketHandler;
 import com.yyd.bytedance.open.demo.handler.UnauthorizedEventHandler;
-import com.yyd.common.ByteDanceMessageInRedisDuplicateChecker;
-import com.yyd.common.IByteDanceMessageDuplicateChecker;
-import com.yyd.common.redis.IByteDanceRedisOps;
-import com.yyd.open.api.ByteDanceOpenMessageRouter;
-import com.yyd.open.bean.message.ByteDanceOpenMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

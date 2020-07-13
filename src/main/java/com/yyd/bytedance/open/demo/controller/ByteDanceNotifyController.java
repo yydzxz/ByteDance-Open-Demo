@@ -1,10 +1,10 @@
 package com.yyd.bytedance.open.demo.controller;
 
+import com.github.yydzxz.open.api.ByteDanceOpenMessageRouter;
+import com.github.yydzxz.open.api.IByteDanceOpenService;
+import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
 import com.yyd.bytedance.open.demo.config.ByteDanceOpenProperties;
 import com.yyd.bytedance.open.demo.controller.query.ReceiveTicketQuery;
-import com.yyd.open.api.ByteDanceOpenMessageRouter;
-import com.yyd.open.api.IByteDanceOpenService;
-import com.yyd.open.bean.message.ByteDanceOpenMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

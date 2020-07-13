@@ -1,8 +1,9 @@
 package com.yyd.bytedance.open.demo.handler;
 
-import com.yyd.open.api.IByteDanceOpenMessageHandler;
-import com.yyd.open.bean.message.ByteDanceOpenMessage;
-import com.yyd.open.bean.message.ByteDanceOpenMessageHandleResult;
+import com.github.yydzxz.open.api.IByteDanceOpenMessageHandler;
+import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.bean.message.ByteDanceOpenMessageHandleResult;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class UnauthorizedEventHandler implements IByteDanceOpenMessageHandler {
 
     @Override
-    public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message) {
+    public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message, Map<String, Object> context) {
         log.info("字节小程序[{}]取消授权", message.getAppId());
         return new ByteDanceOpenMessageHandleResult();
     }

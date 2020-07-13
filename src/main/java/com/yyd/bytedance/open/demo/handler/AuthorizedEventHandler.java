@@ -1,9 +1,11 @@
 package com.yyd.bytedance.open.demo.handler;
 
-import com.yyd.open.api.IByteDanceOpenMessageHandler;
-import com.yyd.open.api.IByteDanceOpenService;
-import com.yyd.open.bean.message.ByteDanceOpenMessage;
-import com.yyd.open.bean.message.ByteDanceOpenMessageHandleResult;
+
+import com.github.yydzxz.open.api.IByteDanceOpenMessageHandler;
+import com.github.yydzxz.open.api.IByteDanceOpenService;
+import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.bean.message.ByteDanceOpenMessageHandleResult;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,7 +24,7 @@ public class AuthorizedEventHandler implements IByteDanceOpenMessageHandler {
     IByteDanceOpenService byteDanceOpenService;
 
     @Override
-    public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message) {
+    public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message, Map<String, Object> context) {
         return new ByteDanceOpenMessageHandleResult();
     }
 }

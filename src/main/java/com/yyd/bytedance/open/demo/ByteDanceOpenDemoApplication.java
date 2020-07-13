@@ -1,12 +1,11 @@
 package com.yyd.bytedance.open.demo;
 
-import com.yyd.common.redis.IByteDanceRedisOps;
-import com.yyd.common.redis.RedissonByteDanceRedisOps;
+import com.github.yydzxz.common.redis.IByteDanceRedisOps;
+import com.github.yydzxz.common.redis.RedissonByteDanceRedisOps;
 import org.redisson.api.RedissonClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
