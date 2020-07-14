@@ -27,6 +27,9 @@ public class ByteDanceOpenServiceConfiguaration {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private ByteDanceOpenProperties byteDanceOpenProperties;
+
     @Bean
     public IByteDanceOpenService getIByteDanceOpenService(){
         ByteDanceOpenServiceImpl byteDanceOpenService = new ByteDanceOpenServiceImpl();
@@ -35,10 +38,10 @@ public class ByteDanceOpenServiceConfiguaration {
         byteDanceOpenService.setRedissonByteDanceRedisOps(redissonByteDanceRedisOps);
         byteDanceOpenService.setByteDanceOpenComponentService(new ByteDanceOpenComponentServiceImpl(byteDanceOpenService));
         ByteDanceOpenInRedisConfigStorage inRedisConfigStorage = new ByteDanceOpenInRedisConfigStorage(redissonByteDanceRedisOps, "yourprefix");
-        inRedisConfigStorage.setComponentAppId("Your ComponentAppId");
-        inRedisConfigStorage.setComponentAppSecret("Your ComponentAppSecret");
-        inRedisConfigStorage.setComponentToken("Your ComponentToken");
-        inRedisConfigStorage.setComponentAesKey("Your ComponentAesKey");
+        inRedisConfigStorage.setComponentAppId(byteDanceOpenProperties.getComponentAppId());
+        inRedisConfigStorage.setComponentAppSecret(byteDanceOpenProperties.getComponentSecret());
+        inRedisConfigStorage.setComponentToken(byteDanceOpenProperties.getComponentToken());
+        inRedisConfigStorage.setComponentAesKey(byteDanceOpenProperties.getComponentAesKey());
         byteDanceOpenService.setByteDanceOpenConfigStorage(inRedisConfigStorage);
         return byteDanceOpenService;
     }
