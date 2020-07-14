@@ -1,5 +1,5 @@
 # ByteDance-Open-Demo
-该demo为ByteDanceOpen SDK用法示例
+该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例
 
 ### 申请账号
 根据[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)指引，申请好账号后，将自己的appid等数据填入
@@ -14,6 +14,6 @@ protected-mode no
 # 注释了bind
 # bind 127.0.0.1 ::1
 ```
-本项目使用的redis客户端是redisson，可以在application-dev.yml指定redis的配置文件。如果想要使用jedis，可以自己实现一个IByteDanceRedisOps
+本项目使用的redis客户端是redisson，可以在`application-dev.yml`指定redis的配置文件。如果想要使用jedis，可以自己实现一个`IByteDanceRedisOps`
 最后启动项目, 接着需要等待字节跳动服务器将ticket推送过来后，才能进行后续的授权等api调用。如果一直没有推送，请确认推送地址是否配置正确
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-130942%402x.png)
