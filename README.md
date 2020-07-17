@@ -29,6 +29,8 @@
 
 ### 接口测试
 - 请确定ticket已经推送过来了。如果ticket推送过来，日志中会打印"MsgTypeTicketHandler 开始处理消息: xxxx"
+  #### 授权
+  - [](http://127.0.0.1:8080/bytedance/)
 
   #### 模版管理
   - [获取第三方应用的草稿](http://127.0.0.1:8080/bytedance/template/draft/list)
