@@ -1,5 +1,6 @@
 package com.yyd.bytedance.open.demo.config;
 
+import com.github.yydzxz.common.redis.IByteDanceRedisOps;
 import com.github.yydzxz.common.redis.RedissonByteDanceRedisOps;
 import com.github.yydzxz.common.service.impl.RestTemplateByteDanceHttpRequestServiceImpl;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
@@ -19,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
  * @date 2020/7/12
  */
 @Configuration
-public class ByteDanceOpenServiceConfiguaration {
+public class ByteDanceOpenServiceConfiguration {
 
     @Autowired
     private RedissonClient redissonClient;
@@ -34,7 +35,7 @@ public class ByteDanceOpenServiceConfiguaration {
     public IByteDanceOpenService getIByteDanceOpenService(){
         ByteDanceOpenServiceImpl byteDanceOpenService = new ByteDanceOpenServiceImpl();
         byteDanceOpenService.setByteDanceHttpRequestService(new RestTemplateByteDanceHttpRequestServiceImpl(restTemplate));
-        RedissonByteDanceRedisOps redissonByteDanceRedisOps = new RedissonByteDanceRedisOps(redissonClient);
+        IByteDanceRedisOps redissonByteDanceRedisOps = new RedissonByteDanceRedisOps(redissonClient);
         byteDanceOpenService.setRedissonByteDanceRedisOps(redissonByteDanceRedisOps);
         byteDanceOpenService.setByteDanceOpenComponentService(new ByteDanceOpenComponentServiceImpl(byteDanceOpenService));
         ByteDanceOpenInRedisConfigStorage inRedisConfigStorage = new ByteDanceOpenInRedisConfigStorage(redissonByteDanceRedisOps, "yourprefix");

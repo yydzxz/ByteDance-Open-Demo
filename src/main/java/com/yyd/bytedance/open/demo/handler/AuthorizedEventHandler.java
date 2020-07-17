@@ -11,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * TODO
- * 授权的时候，字节跳动最后一步的重定向并不稳定，经常出错，所以还是需要这个handler来处理授权事件
+ * 授权事件处理器
  * @author yangyidian
  * @date 2020/07/10
  **/
