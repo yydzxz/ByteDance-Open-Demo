@@ -32,4 +32,4 @@
 
 #### 模版管理
 [获取第三方应用的草稿](http://127.0.0.1:8080/bytedance/template/draft/list)
-[list]((http://127.0.0.1:8080/bytedance/template/draft/list))
+[获取第三方应用的所有模版](http://127.0.0.1:8080/bytedance/template/list)
