@@ -2,7 +2,7 @@
 - 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例
 
 ### 申请账号
-- 根据[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)指引，去[字节跳动小程序后台](https://microapp.bytedance.com)注册一个账号。
+- 根据[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)指引，去[字节跳动小程序管理后台](https://microapp.bytedance.com)注册一个账号。
 - [字节跳动小程序管理后台](https://microapp.bytedance.com)账号自带一个[字节跳动第三方平台](https://open.microapp.bytedance.com)账号，创建一个第三平台后，将第三方平台的相关数据填入
 `application-dev.yml`
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-122557%402x.png)
@@ -34,7 +34,7 @@
   #### 网页授权
   - 先去[字节跳动小程序管理后台](https://microapp.bytedance.com/app/applist)创建一个小程序
   - 然后去[字节跳动第三方平台](https://open.microapp.bytedance.com/tplist)将刚才创建的小程序的appid添加到【授权测试小程序列表】，以便测试
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-210508%402x.png)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210508%402x.png)
   
   - 浏览器中输入授权地址: [https://你的公网地址或者ngrok生成的公网地址/bytedance/auth/goto_auth_url_show]()
   #### 模版管理
@@ -43,4 +43,4 @@
 
 ### 其他注意事项
   - 把本机外网ip配置到白名单
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-210903%402x.png)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
