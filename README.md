@@ -48,6 +48,6 @@
   - 如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现。
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1407E96CAA9184803B3BF7D53A80649E.jpg)
   - 字节跳动授权流程中的小bug。从gif中可以看到，第一次授权跳转到字节跳动页面时，显示 **授权信息异常** 。必须要管理员先登录小程序管理后台，授权流程才能正确进行。
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/gits/auth_bug.gif)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/gifs/auth_bug.gif)
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1991595100618_.pic_hd.jpg)
   
