@@ -3,7 +3,7 @@
 
 ### 申请账号
 - 根据[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)指引，去[字节跳动小程序管理后台](https://microapp.bytedance.com)注册一个账号。
-- [字节跳动小程序管理后台](https://microapp.bytedance.com)账号自带一个[字节跳动第三方平台](https://open.microapp.bytedance.com)账号，创建一个第三平台后，将第三方平台的相关数据填入
+- [字节跳动小程序管理后台](https://microapp.bytedance.com)账号自带一个[字节跳动第三方平台](https://open.microapp.bytedance.com)账号（登录小程序管理后台后，进入第三方平台直接就是登录状态），创建一个第三平台后，将第三方平台的相关数据填入
 `application-dev.yml`
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-122557%402x.png)
 
@@ -18,7 +18,7 @@
   # 注释了bind
   # bind 127.0.0.1 ::1
   ```
-- 本项目使用的redis客户端是[redisson](https://github.com/redisson/redisson)，可以在`application-dev.yml`指定redis的配置文件。
+- 本项目使用的redis客户端是[redisson](https://github.com/redisson/redisson)，可以直接使用。如果想修改redis连接相关配置，可以在`application-dev.yml`指定redis的配置文件。
 
 - 如果想要使用jedis，可以自己实现一个`IByteDanceRedisOps`
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200715-144937%402x.png)
@@ -44,3 +44,10 @@
 ### 其他注意事项
   - 把本机外网ip配置到白名单
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
+  - 目前字节跳动的[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)还在不断更新，我也会根据他的更新不断新增接口。
+  - 如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现。
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1407E96CAA9184803B3BF7D53A80649E.jpg)
+  - 字节跳动授权流程中的小bug。从gif中可以看到，第一次授权跳转到字节跳动页面时，显示 **授权信息异常** 。必须要管理员先登录小程序管理后台，授权流程才能正确进行。
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/gits/auth_bug.gif)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1981595100251_.pic_hd.jpg)
+  
