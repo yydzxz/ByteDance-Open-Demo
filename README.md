@@ -1,7 +1,7 @@
 # ByteDance-Open-Demo
 - 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例
 - 如果觉得用起来还不错╰(●’◡’●)╮，希望能够star一下~
-- 如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现(详情见下面的[其他注意事项](###其他注意事项))。
+- 如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现(详情见下面的[其他注意事项](#其他注意事项))。
 
 ### 申请账号
 - 根据[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)指引，去[字节跳动小程序管理后台](https://microapp.bytedance.com)注册一个账号。
@@ -49,10 +49,9 @@
 ### 其他注意事项
   - 把本机外网ip配置到白名单
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
-  - 目前字节跳动的[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)还在不断更新，我也会根据他的更新不断新增接口。
   - 字节跳动授权流程中的小bug。从gif中可以看到，第一次授权跳转到字节跳动页面时，显示 **授权信息异常** 。必须要管理员先登录小程序管理后台，授权流程才能正确进行。
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/gifs/auth_bug.gif)
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1991595100618_.pic_hd.jpg)
-  - 如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现。
+  - 目前字节跳动的[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)还在不断更新，我也会根据他的更新不断新增接口。如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现。
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1407E96CAA9184803B3BF7D53A80649E.jpg)
   
