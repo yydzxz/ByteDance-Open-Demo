@@ -23,6 +23,9 @@
 - 如果想要使用jedis，可以自己实现一个`IByteDanceRedisOps`
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200715-144937%402x.png)
 
+### 内网穿透
+  - 如果没有公网地址，那么需要使用内网穿透工具。比如[ngrok](https://ngrok.com/)
+  - 如果使用ngrok，下载好后，在命令行执行`ngrok http 8080`就能得到一个映射到8080端口（项目默认启动端口）的外网地址。
 
 ### 启动项目
 - 启动项目后需要等待字节跳动服务器将ticket推送过来后（一般10分钟以内），才能进行后续的授权等api调用。如果一直没有推送，请确认推送地址是否配置正确
@@ -30,9 +33,7 @@
 
 ### 接口测试
 - 请确定ticket已经推送过来了。如果ticket推送过来，日志中会打印"MsgTypeTicketHandler 开始处理消息: xxxx"
-  #### 内网穿透
-  - 如果没有公网地址，那么需要使用内网穿透工具。比如[ngrok](https://ngrok.com/)
-  - 如果使用ngrok，下载好后，在命令行执行`ngrok http 8080`就能得到一个映射到8080端口（项目默认启动端口）的外网地址。
+
   #### 网页授权
   - 先去[字节跳动小程序管理后台](https://microapp.bytedance.com/app/applist)创建一个小程序
   - 然后去[字节跳动第三方平台](https://open.microapp.bytedance.com/tplist)将刚才创建的小程序的appid添加到【授权测试小程序列表】，以便测试
