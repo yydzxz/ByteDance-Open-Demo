@@ -1,6 +1,6 @@
 # ByteDance-Open-Demo
 - 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例
-
+- 如果觉得用起来还不错╰(●’◡’●)╮，希望能够star一下~
 ### 申请账号
 - 根据[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)指引，去[字节跳动小程序管理后台](https://microapp.bytedance.com)注册一个账号。
 - [字节跳动小程序管理后台](https://microapp.bytedance.com)账号自带一个[字节跳动第三方平台](https://open.microapp.bytedance.com)账号（登录小程序管理后台后，进入第三方平台直接就是登录状态），创建一个第三平台后，将第三方平台的相关数据填入
