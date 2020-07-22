@@ -1,11 +1,11 @@
 # ByteDance-Open-Demo
-- 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例
-- 当前页面上的图片如果裂了，那么就需要科学上网o(￣ヘ￣o＃)。
-- 如果觉得用起来还不错╰(●’◡’●)╮，希望能够star一下~
+- 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例。[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)
+- 当前页面上的图片如果裂了，那么就需要科学上网o(￣ヘ￣o＃)，或者clone后查看images/gifs文件夹下对应的图片
+- 如果觉得用起来还不错╰(●’◡’●)╮，希望能够**star★★★★★**支持一下~~~
 - 如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现(详情见下面的[其他注意事项](#其他注意事项))。
 
 ### 申请账号
-- 根据[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)指引，去[字节跳动小程序管理后台](https://microapp.bytedance.com)注册一个账号。
+- 先在[字节跳动小程序管理后台](https://microapp.bytedance.com)注册一个账号。
 - [字节跳动小程序管理后台](https://microapp.bytedance.com)账号自带一个[字节跳动第三方平台](https://open.microapp.bytedance.com)账号（登录小程序管理后台后，进入第三方平台直接就是登录状态），创建一个第三平台后，将第三方平台的相关数据填入
 `application-dev.yml`
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-122557%402x.png)
@@ -24,11 +24,17 @@
 - 本项目使用的redis客户端是[redisson](https://github.com/redisson/redisson)，可以直接使用。如果想修改redis连接相关配置，可以在`application-dev.yml`指定redis的配置文件。
 
 - 如果想要使用jedis，可以自己实现一个`IByteDanceRedisOps`
-![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200715-144937%402x.png)
 
 ### 内网穿透
   - 如果没有公网地址，那么需要使用内网穿透工具。比如[ngrok](https://ngrok.com/)
-  - 如果使用ngrok，下载好后，在命令行执行`ngrok http 8080`就能得到一个映射到8080端口（项目默认启动端口）的外网地址。
+  - 如果使用ngrok，下载好后，根据不同的操作系统，在命令行执行
+    ```bash
+      # MacOS
+      ngrok http 8080
+      # Windows
+      ngrok.exe http 8080
+    ```
+    就能得到一个映射到8080端口（项目默认启动端口）的外网地址。
 
 ### 启动项目
 - 启动项目后需要等待字节跳动服务器将ticket推送过来后（一般10分钟以内），才能进行后续的授权等api调用。如果一直没有推送，请确认推送地址是否配置正确

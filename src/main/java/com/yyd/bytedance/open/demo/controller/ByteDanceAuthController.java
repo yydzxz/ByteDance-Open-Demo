@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -28,10 +27,10 @@ public class ByteDanceAuthController {
     private IByteDanceOpenService byteDanceOpenService;
 
     @GetMapping("/goto_auth_url_show")
-    @ResponseBody
     public String gotoPreAuthUrlShow(){
         return "<a href='goto_auth_url'>go</a>";
     }
+
     @GetMapping("/goto_auth_url")
     public void gotoPreAuthUrl(HttpServletRequest request, HttpServletResponse response){
         String host = request.getHeader("host");
@@ -47,8 +46,8 @@ public class ByteDanceAuthController {
             throw new RuntimeException(e);
         }
     }
+
     @GetMapping("/jump")
-    @ResponseBody
     public GetAuthorizerAccessTokenReponse jump(@RequestParam("authorization_code") String authorizationCode){
         log.info("authorizationCode: {}", authorizationCode);
         return byteDanceOpenService.getByteDanceOpenComponentService().getAuthorizerAccessTokenByAuthorizationCode(authorizationCode);

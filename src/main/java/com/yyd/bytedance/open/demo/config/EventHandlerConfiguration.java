@@ -6,6 +6,7 @@ import com.github.yydzxz.common.IByteDanceMessageDuplicateChecker;
 import com.github.yydzxz.common.redis.IByteDanceRedisOps;
 import com.github.yydzxz.open.api.ByteDanceOpenMessageRouter;
 import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
+import com.yyd.bytedance.open.demo.handler.CodeAuditEventHandler;
 import com.yyd.bytedance.open.demo.handler.LogHandler;
 import com.yyd.bytedance.open.demo.handler.MsgTypeTicketHandler;
 import com.yyd.bytedance.open.demo.handler.UnauthorizedEventHandler;
@@ -22,6 +23,9 @@ import org.springframework.context.annotation.Configuration;
 public class EventHandlerConfiguration {
 
     @Autowired
+    private IByteDanceRedisOps byteDanceRedisOps;
+
+    @Autowired
     private LogHandler logHandler;
 
     @Autowired
@@ -31,7 +35,7 @@ public class EventHandlerConfiguration {
     private MsgTypeTicketHandler msgTypeTicketHandler;
 
     @Autowired
-    private IByteDanceRedisOps byteDanceRedisOps;
+    private CodeAuditEventHandler codeAuditEventHandler;
 
     @Bean
     public ByteDanceOpenMessageRouter getByteDanceOpenMessageRouter(){
@@ -53,6 +57,12 @@ public class EventHandlerConfiguration {
             .msgType(ByteDanceOpenMessage.MSG_TYPE_TICKET)
             .addHandler(logHandler)
             .addHandler(msgTypeTicketHandler)
+            .end();
+
+        router.rule()
+            .event(ByteDanceOpenMessage.EVENT_PACKAGE_AUDIT)
+            .addHandler(logHandler)
+            .addHandler(codeAuditEventHandler)
             .end();
 
         return router;
