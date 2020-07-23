@@ -52,6 +52,9 @@
   #### 模版管理
   - [获取第三方应用的草稿](http://127.0.0.1:8080/bytedance/template/draft/list)
   - [获取第三方应用的所有模版](http://127.0.0.1:8080/bytedance/template/list)
+  
+### 事件推送处理
+  可以在`EventHandlerConfiguration`配置用于处理相应事件的handler
 
 ### 其他注意事项
   - 把本机外网ip配置到白名单

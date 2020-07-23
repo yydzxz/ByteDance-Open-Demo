@@ -13,7 +13,6 @@ import com.yyd.bytedance.open.demo.handler.ModifyAppIntroEventHandler;
 import com.yyd.bytedance.open.demo.handler.ModifyAppNameEventHandler;
 import com.yyd.bytedance.open.demo.handler.MsgTypeTicketHandler;
 import com.yyd.bytedance.open.demo.handler.UnauthorizedEventHandler;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

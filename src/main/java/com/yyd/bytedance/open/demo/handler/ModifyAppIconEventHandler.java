@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
+ * 处理修改授权小程序图标的推送事件
  * @author yangyidian
  * @date 2020/07/20
  **/
