@@ -1,15 +1,14 @@
 package com.yyd.bytedance.open.demo.controller;
 
-import cn.hutool.core.io.IoUtil;
+import cn.hutool.core.io.FileUtil;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.request.material.UploadPicMaterialRequest;
-import com.yyd.bytedance.open.demo.controller.query.material.UploadPicMaterialQuery;
+import com.github.yydzxz.open.api.response.material.UploadPicMaterialResponse;
 import java.io.File;
 import java.io.IOException;
-import jodd.io.FileUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @author yangyidian
  * @date 2020/07/21
  **/
+@Slf4j
 @RestController
 @RequestMapping("/bytedance/material")
 public class ByteDanceMaterialController {
@@ -25,18 +25,16 @@ public class ByteDanceMaterialController {
     @Autowired
     private IByteDanceOpenService byteDanceOpenService;
 
-    @PostMapping("/pic-material/upload")
-    public void uploadPicMaterial(MultipartFile materialFile, @RequestBody UploadPicMaterialQuery query) throws IOException {
+    @PostMapping("/pic/upload")
+    public UploadPicMaterialResponse uploadPicMaterial(MultipartFile materialFile, String materialType) throws IOException {
         UploadPicMaterialRequest request = new UploadPicMaterialRequest();
-        request.setMaterial_type(query.getMaterialType());
+        request.setMaterialType(materialType);
 
         File file = File.createTempFile("bytedance-material", System.currentTimeMillis() + "");
-        FileUtil.writeBytes(file, materialFile.getBytes());
-
-        request.setMaterial_file(file);
-        byteDanceOpenService.getByteDanceOpenComponentService()
+        FileUtil.writeBytes(materialFile.getBytes(), file);
+        request.setMaterialFile(file);
+        return byteDanceOpenService.getByteDanceOpenComponentService()
             .getByteDanceOpenMaterialService()
             .uploadPicMaterial(request);
     }
-
 }

@@ -40,7 +40,24 @@ public class ByteDanceNotifyController {
     @PostMapping("/receive_ticket")
     public String receiveTicket(@RequestBody ReceiveTicketQuery receiveTicketQuery) {
         log.info("接收字节跳动请求：{}",receiveTicketQuery);
+        handleMessage(receiveTicketQuery);
+        return "success";
+    }
 
+    /**
+     * 消息与事件接收URL
+     * 该URL用于接收已授权小程序的消息和事件
+     * @return
+     */
+    @RequestMapping("/{appid}/callback")
+    public String callback(@PathVariable("appid") String appid, @RequestBody ReceiveTicketQuery receiveTicketQuery){
+        log.info("小程序[{}]接收到消息与事件推送", appid);
+        handleMessage(receiveTicketQuery);
+        return "success";
+    }
+
+
+    private String handleMessage(ReceiveTicketQuery receiveTicketQuery){
         boolean checkSignatureSuccess = byteDanceOpenService.getByteDanceOpenComponentService()
             .checkSignature(receiveTicketQuery.getMsgSignature(),
                 byteDanceOpenProperties.getComponentToken(),
@@ -52,7 +69,6 @@ public class ByteDanceNotifyController {
             log.error("非法请求，可能属于伪造的请求！");
             return "failed";
         }
-
         ByteDanceOpenMessage message = null;
         try {
             message = ByteDanceOpenMessage.fromEncrypted(receiveTicketQuery.getEncrypt(), byteDanceOpenProperties.getComponentAesKey());
@@ -61,17 +77,7 @@ public class ByteDanceNotifyController {
             log.error(e.getMessage(), e);
             return "failed";
         }
-        return byteDanceOpenMessageRouter.route(message).getDefaultResult();
-    }
-
-    /**
-     * 消息与事件接收URL
-     * 该URL用于接收已授权小程序的消息和事件
-     * @return
-     */
-    @RequestMapping("/{appid}/callback")
-    public String callback(@PathVariable("appid") String appid){
-        log.info("小程序[{}]接收到消息与事件推送", appid);
-        return  "success";
+        byteDanceOpenMessageRouter.route(message);
+        return "success";
     }
 }

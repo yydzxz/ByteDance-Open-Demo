@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author yangyidian
- * @date 2020/07/20
+ * @date 2020/07/23
  **/
 @Slf4j
 @Component
-public class ModifyAppIconEventHandler implements IByteDanceOpenMessageHandler {
+public class ModifyAppIntroEventHandler implements IByteDanceOpenMessageHandler {
 
     @Override
-    public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message, Map<String, Object> context) {
+    public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage byteDanceOpenMessage, Map<String, Object> map) {
         return null;
     }
 }

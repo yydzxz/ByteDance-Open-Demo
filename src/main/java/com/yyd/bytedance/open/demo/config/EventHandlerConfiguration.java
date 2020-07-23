@@ -8,8 +8,12 @@ import com.github.yydzxz.open.api.ByteDanceOpenMessageRouter;
 import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
 import com.yyd.bytedance.open.demo.handler.CodeAuditEventHandler;
 import com.yyd.bytedance.open.demo.handler.LogHandler;
+import com.yyd.bytedance.open.demo.handler.ModifyAppIconEventHandler;
+import com.yyd.bytedance.open.demo.handler.ModifyAppIntroEventHandler;
+import com.yyd.bytedance.open.demo.handler.ModifyAppNameEventHandler;
 import com.yyd.bytedance.open.demo.handler.MsgTypeTicketHandler;
 import com.yyd.bytedance.open.demo.handler.UnauthorizedEventHandler;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,6 +41,15 @@ public class EventHandlerConfiguration {
     @Autowired
     private CodeAuditEventHandler codeAuditEventHandler;
 
+    @Autowired
+    private ModifyAppNameEventHandler modifyAppNameEventHandler;
+
+    @Autowired
+    private ModifyAppIconEventHandler modifyAppIconEventHandler;
+
+    @Autowired
+    private ModifyAppIntroEventHandler modifyAppIntroEventHandler;
+
     @Bean
     public ByteDanceOpenMessageRouter getByteDanceOpenMessageRouter(){
         final IByteDanceMessageDuplicateChecker messageDuplicateChecker = new ByteDanceMessageInRedisDuplicateChecker(byteDanceRedisOps);
@@ -63,6 +76,24 @@ public class EventHandlerConfiguration {
             .event(ByteDanceOpenMessage.EVENT_PACKAGE_AUDIT)
             .addHandler(logHandler)
             .addHandler(codeAuditEventHandler)
+            .end();
+
+        router.rule()
+            .event(ByteDanceOpenMessage.EVENT_MODIFY_APP_NAME)
+            .addHandler(logHandler)
+            .addHandler(modifyAppNameEventHandler)
+            .end();
+
+        router.rule()
+            .event(ByteDanceOpenMessage.EVENT_MODIFY_APP_ICON)
+            .addHandler(logHandler)
+            .addHandler(modifyAppIconEventHandler)
+            .end();
+
+        router.rule()
+            .event(ByteDanceOpenMessage.EVENT_MODIFY_APP_INTRO)
+            .addHandler(logHandler)
+            .addHandler(modifyAppIntroEventHandler)
             .end();
 
         return router;
