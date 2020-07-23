@@ -1,9 +1,10 @@
 package com.yyd.bytedance.open.demo.handler;
 
 import cn.hutool.json.JSONUtil;
-import com.yyd.open.api.IByteDanceOpenMessageHandler;
-import com.yyd.open.bean.message.ByteDanceOpenMessage;
-import com.yyd.open.bean.message.ByteDanceOpenMessageHandleResult;
+import com.github.yydzxz.open.api.IByteDanceOpenMessageHandler;
+import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.bean.message.ByteDanceOpenMessageHandleResult;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class LogHandler implements IByteDanceOpenMessageHandler {
 
     @Override
-    public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message) {
+    public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message, Map<String, Object> context) {
         log.info("LogHandler开始处理消息: {}", JSONUtil.toJsonStr(message));
         return new ByteDanceOpenMessageHandleResult();
     }
