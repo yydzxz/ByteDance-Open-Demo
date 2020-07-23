@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * 授权认证
  * @author yangyidian
  * @date 2020/06/28
  **/

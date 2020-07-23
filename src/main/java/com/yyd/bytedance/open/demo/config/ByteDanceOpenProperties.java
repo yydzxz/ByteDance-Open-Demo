@@ -1,5 +1,6 @@
 package com.yyd.bytedance.open.demo.config;
 
+import javax.annotation.PostConstruct;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -31,4 +32,11 @@ public class ByteDanceOpenProperties {
      * 字节跳动三方平台的EncodingAESKey
      */
     private String componentAesKey;
+
+    @PostConstruct
+    public void check(){
+        if("your componentAppId".equals(componentAppId)){
+            throw new RuntimeException("请先在application-dev.yml设置自己的第三方平台信息!");
+        }
+    }
 }

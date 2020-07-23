@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
+ * 素材
  * @author yangyidian
  * @date 2020/07/21
  **/
@@ -25,11 +26,17 @@ public class ByteDanceMaterialController {
     @Autowired
     private IByteDanceOpenService byteDanceOpenService;
 
+    /**
+     * 上传图片素材
+     * @param materialFile
+     * @param materialType
+     * @return
+     * @throws IOException
+     */
     @PostMapping("/pic/upload")
     public UploadPicMaterialResponse uploadPicMaterial(MultipartFile materialFile, String materialType) throws IOException {
         UploadPicMaterialRequest request = new UploadPicMaterialRequest();
         request.setMaterialType(materialType);
-
         File file = File.createTempFile("bytedance-material", System.currentTimeMillis() + "");
         FileUtil.writeBytes(materialFile.getBytes(), file);
         request.setMaterialFile(file);

@@ -14,7 +14,13 @@ import com.github.yydzxz.open.api.response.appinfo.AppModifyAppIntroResponse;
 import com.github.yydzxz.open.api.response.appinfo.AppModifyAppNameResponse;
 import com.github.yydzxz.open.api.response.appinfo.AppModifyServerDomainResponse;
 import com.github.yydzxz.open.api.response.appinfo.AppModifyWebviewDomainResponse;
+import com.yyd.bytedance.open.demo.controller.query.info.AppModifyAppIconQuery;
+import com.yyd.bytedance.open.demo.controller.query.info.AppModifyAppIntroQuery;
+import com.yyd.bytedance.open.demo.controller.query.info.AppModifyAppNameQuery;
+import com.yyd.bytedance.open.demo.controller.query.info.AppModifyServerDomainQuery;
+import com.yyd.bytedance.open.demo.controller.query.info.AppModifyWebviewDomainQuery;
 import com.yyd.bytedance.open.demo.controller.query.info.InfoQrCodeQuery;
+import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -22,7 +28,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -73,7 +78,7 @@ public class  ByteDanceInfoController {
      * @return
      */
     @GetMapping("/check_app_name")
-    public AppCheckAppNameResponse checkAppName(String appid, @RequestParam("app_name") String appName){
+    public AppCheckAppNameResponse checkAppName(String appid, String appName){
         return byteDanceOpenService.getByteDanceOpenComponentService()
             .getOpenMiniProgramServiceByAppid(appid)
             .getByteDanceOpenMiniProgramInfoService()
@@ -83,11 +88,13 @@ public class  ByteDanceInfoController {
     /**
      * 修改小程序名称
      * @param appid
-     * @param request
+     * @param query
      * @return
      */
     @PostMapping("/modify_app_name")
-    public AppModifyAppNameResponse modifyAppName(String appid, @RequestBody AppModifyAppNameRequest request){
+    public AppModifyAppNameResponse modifyAppName(String appid, @Valid @RequestBody AppModifyAppNameQuery query){
+        AppModifyAppNameRequest request = new AppModifyAppNameRequest();
+        BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenComponentService()
             .getOpenMiniProgramServiceByAppid(appid)
             .getByteDanceOpenMiniProgramInfoService()
@@ -97,11 +104,13 @@ public class  ByteDanceInfoController {
     /**
      * 修改小程序简介
      * @param appid
-     * @param request
+     * @param query
      * @return
      */
     @PostMapping("modify_app_intro")
-    public AppModifyAppIntroResponse modifyAppIntro(String appid, @RequestBody AppModifyAppIntroRequest request){
+    public AppModifyAppIntroResponse modifyAppIntro(String appid, @Valid @RequestBody AppModifyAppIntroQuery query){
+        AppModifyAppIntroRequest request = new AppModifyAppIntroRequest();
+        BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenComponentService()
             .getOpenMiniProgramServiceByAppid(appid)
             .getByteDanceOpenMiniProgramInfoService()
@@ -111,11 +120,13 @@ public class  ByteDanceInfoController {
     /**
      * 修改小程序图标
      * @param appid
-     * @param request
+     * @param query
      * @return
      */
     @PostMapping("/modify_app_icon")
-    public AppModifyAppIconResponse modifyAppIcon(String appid, @RequestBody AppModifyAppIconRequest request){
+    public AppModifyAppIconResponse modifyAppIcon(String appid, @Valid @RequestBody AppModifyAppIconQuery query){
+        AppModifyAppIconRequest request = new AppModifyAppIconRequest();
+        BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenComponentService()
             .getOpenMiniProgramServiceByAppid(appid)
             .getByteDanceOpenMiniProgramInfoService()
@@ -127,11 +138,13 @@ public class  ByteDanceInfoController {
      * 注意：事先需要在第三方平台（https://open.microapp.bytedance.com）设置好第三方平台的服务器域名，接口服务器域名的选项必须在第三方平台的服务器域名列表内
      * 提示：设置的服务器域名可以是第三方平台服务器域名的子域名
      * @param appid
-     * @param request
+     * @param query
      * @return
      */
     @PostMapping("/modify_server_domain")
-    public AppModifyServerDomainResponse modifyServerDomain(String appid, @RequestBody AppModifyServerDomainRequest request){
+    public AppModifyServerDomainResponse modifyServerDomain(String appid, @Valid @RequestBody AppModifyServerDomainQuery query){
+        AppModifyServerDomainRequest request = new AppModifyServerDomainRequest();
+        BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenComponentService()
             .getOpenMiniProgramServiceByAppid(appid)
             .getByteDanceOpenMiniProgramInfoService()
@@ -144,7 +157,9 @@ public class  ByteDanceInfoController {
      * @return
      */
     @PostMapping("/modify_webview_domain")
-    public AppModifyWebviewDomainResponse modifyWebviewDomain(String appid, @RequestBody AppModifyWebviewDomainRequest request){
+    public AppModifyWebviewDomainResponse modifyWebviewDomain(String appid, @Valid @RequestBody AppModifyWebviewDomainQuery query){
+        AppModifyWebviewDomainRequest request = new AppModifyWebviewDomainRequest();
+        BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenComponentService()
             .getOpenMiniProgramServiceByAppid(appid)
             .getByteDanceOpenMiniProgramInfoService()
