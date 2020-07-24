@@ -35,9 +35,13 @@
       ngrok.exe http 8080
     ```
     就能得到一个映射到8080端口（项目默认启动端口）的外网地址。
+    
+### 配置ip白名单
+  - 把本机外网ip配置到[字节跳动第三方平台](https://open.microapp.bytedance.com)的白名单
+  - ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
 
 ### 启动项目
-- 启动项目后需要等待字节跳动服务器将ticket推送过来后（一般10分钟以内），才能进行后续的授权等api调用。如果一直没有推送，请确认推送地址是否配置正确
+- 启动项目后需要等待字节跳动服务器将ticket推送过来后（一般10分钟以内），才能进行后续的授权等api调用。如果一直没有推送，请到[字节跳动第三方平台](https://open.microapp.bytedance.com)，选择自己创建的第三方平台确认推送地址是否配置正确
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-130942%402x.png)
 
 ### 接口测试
@@ -54,11 +58,9 @@
   - [获取第三方应用的所有模版](http://127.0.0.1:8080/bytedance/template/list)
   
 ### 事件推送处理
-  可以在`EventHandlerConfiguration`配置用于处理相应事件的handler
+  - 可以在`EventHandlerConfiguration`配置用于处理相应事件的handler
 
 ### 其他注意事项
-  - 把本机外网ip配置到白名单
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
   - 字节跳动授权流程中的小bug。从gif中可以看到，第一次授权跳转到字节跳动页面时，显示 **授权信息异常** 。必须要管理员先登录小程序管理后台，授权流程才能正确进行。
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/gifs/auth_bug.gif)
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1991595100618_.pic_hd.jpg)
