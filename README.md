@@ -64,4 +64,9 @@
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1991595100618_.pic_hd.jpg)
   - 目前字节跳动的[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)还在不断更新，我也会根据他的更新不断新增接口。如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现。
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1407E96CAA9184803B3BF7D53A80649E.jpg)
-  
+  - 加解密异常 java.security.InvalidKeyException: Illegal key size
+    - 因为秘钥长度超过128位,在某些jdk版本中默认只支持128位以下的秘钥
+    - 解决方案为使用无限制的策略文件替换 $JAVA_HOME\jre\lib\security 下的策略文件
+    - 下载地址
+      - jdk7 [https://www.oracle.com/java/technologies/javase-jce7-downloads.html]()
+      - jdk8 [https://www.oracle.com/java/technologies/javase-jce8-downloads.html]()
