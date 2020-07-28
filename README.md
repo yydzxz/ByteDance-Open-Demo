@@ -1,5 +1,6 @@
 # ByteDance-Open-Demo
 - 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例。[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)
+- 提供了docker启动方式，包含redis和ngrok服务
 - 当前页面上的图片如果裂了，那么就需要科学上网o(￣ヘ￣o＃)，或者clone后查看images/gifs文件夹下对应的图片
 - 如果觉得用起来还不错╰(●’◡’●)╮，希望能够**star★★★★★**支持一下~~~
 - 如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现(详情见下面的[其他注意事项](#其他注意事项))。
@@ -9,8 +10,30 @@
 - [字节跳动小程序管理后台](https://microapp.bytedance.com)账号自带一个[字节跳动第三方平台](https://open.microapp.bytedance.com)账号（登录小程序管理后台后，进入第三方平台直接就是登录状态），创建一个第三平台后，将第三方平台的相关数据填入
 `application-dev.yml`
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-122557%402x.png)
+    
+### 配置ip白名单
+  - 把本机外网ip配置到[字节跳动第三方平台](https://open.microapp.bytedance.com)的白名单
+  - ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
 
-### 启动redis
+### 启动项目
+#### 方式1: docker启动方式
+1. 打包jar
+  ```bash
+    mvn clean install -DskipTests
+  ```
+2. 在**docker-compose.yml**中填入第三方平台的信息
+3. 启动ngrok redis 项目
+  ```bash
+    docker-compose up --build
+  ```
+4. 查询ngrok提供的外网地址
+  ```bash
+  curl $(docker port bytedance-open-demo_ngrok_1 4040)/api/tunnels
+  ```
+  - 可以从public_url中找到所需的外网地址
+
+#### 方式2: 普通启动方式
+##### 启动redis
 - `access_token`等数据都是保存在redis中，所以需要一个redis服务
 
 - 为了方便使用，项目中提供了一个默认的`redis.conf`, 只修改了两个配置:
@@ -25,7 +48,7 @@
 
 - 如果想要使用jedis，可以自己实现一个`IByteDanceRedisOps`
 
-### 内网穿透
+##### 内网穿透
   - 如果没有公网地址，那么需要使用内网穿透工具。比如[ngrok](https://ngrok.com/)
   - 如果使用ngrok，下载好后，根据不同的操作系统，在命令行执行
     ```bash
@@ -35,29 +58,13 @@
       ngrok.exe http 8080
     ```
     就能得到一个映射到8080端口（项目默认启动端口）的外网地址。
-    
-### 配置ip白名单
-  - 把本机外网ip配置到[字节跳动第三方平台](https://open.microapp.bytedance.com)的白名单
-  - ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
 
-### 启动项目
-
-#### docker启动方式
-1. 打包jar
-  ```bash
-    mvn clean install -DskipTests
-  ```
-2. 在**docker-compose.yml**中填入第三方平台的信息
-3. 启动ngrok redis 项目
-  ```bash
-    docker-compose up --build
-  ```
-
-#### 普通启动方式
+##### 启动本项目    
 - 启动项目后需要等待字节跳动服务器将ticket推送过来后（一般10分钟以内），才能进行后续的授权等api调用。如果一直没有推送，请到[字节跳动第三方平台](https://open.microapp.bytedance.com)，选择自己创建的第三方平台确认推送地址是否配置正确
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-130942%402x.png)
 
-### 接口测试
+
+### 按照上述两种方式启动项目后，进行接口测试
 - 请确定ticket已经推送过来了。如果ticket推送过来，日志中会打印"MsgTypeTicketHandler 开始处理消息: xxxx"
 
   #### 网页授权
