@@ -17,16 +17,20 @@
 
 ### 启动项目
 #### 方式1: docker启动方式
-1. 打包jar
+1. 进入项目目录
+  ```bash
+    cd /yourpath/bytedance-open-demo
+  ```
+2. 打包jar
   ```bash
     mvn clean install -DskipTests
   ```
-2. 在**docker-compose.yml**中填入第三方平台的信息
-3. 启动ngrok redis 项目
+3. 在**docker-compose.yml**中填入第三方平台的信息
+4. 通过docker所需服务: redis,ngrok以及本项目
   ```bash
     docker-compose up --build
   ```
-4. 查询ngrok提供的外网地址
+5. 查询ngrok提供的外网地址
   ```bash
   curl $(docker port bytedance-open-demo_ngrok_1 4040)/api/tunnels
   ```
