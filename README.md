@@ -26,7 +26,7 @@
     mvn clean install -DskipTests
   ```
 #### 3. 在**docker-compose.yml**中填入第三方平台的信息
-#### 4. 通过docker所需服务: redis,ngrok以及本项目
+#### 4. 通过docker启动所需服务: redis,ngrok以及本项目
   ```bash
     docker-compose up --build
   ```
@@ -40,7 +40,7 @@
 #### 启动redis
 - `access_token`等数据都是保存在redis中，所以需要一个redis服务
 
-- 为了方便使用，项目中提供了一个默认的`redis.conf`, 只修改了两个配置:
+- 为了方便使用，项目中提供了一个默认的`redis.conf`, 位于`docker/redis/redis.conf`, 只修改了两个配置:
 
   ```bash
   # 把protected-mode改为了no
@@ -68,7 +68,7 @@
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-130942%402x.png)
 
 
-## 按照上述两种方式启动项目后，进行接口测试
+## 任选一种方式启动项目后，进行接口测试
 - 请确定ticket已经推送过来了。如果ticket推送过来，日志中会打印"MsgTypeTicketHandler 开始处理消息: xxxx"
 
   ### 网页授权
