@@ -41,6 +41,22 @@
   - ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
 
 ### 启动项目
+
+#### docker启动方式
+1. 打包jar
+  ```bash
+    mvn clean install -DskipTests
+  ```
+2. 在**docker-compose.yml**中填入第三方平台的信息
+3. 启动ngrok redis 项目
+  ```bash
+    docker-compose up --build
+  ```
+
+#### 普通启动方式
+mvn clean install -DskipTests
+在docker-compose.yml中填写第三方平台配置信息
+docker-compose up --build
 - 启动项目后需要等待字节跳动服务器将ticket推送过来后（一般10分钟以内），才能进行后续的授权等api调用。如果一直没有推送，请到[字节跳动第三方平台](https://open.microapp.bytedance.com)，选择自己创建的第三方平台确认推送地址是否配置正确
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-130942%402x.png)
 

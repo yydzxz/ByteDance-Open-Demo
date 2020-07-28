@@ -1,0 +1,11 @@
+spring:
+  redis:
+    redisson:
+      config: classpath:redisson-single-docker-dev.yml
+
+bytedance:
+  open:
+    componentAppId: "your componentAppId"
+    componentSecret: "your componentSecret"
+    componentToken: "your componentToken"
+    componentAesKey: "your componentAesKey"
