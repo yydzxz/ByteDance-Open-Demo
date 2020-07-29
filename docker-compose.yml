@@ -14,6 +14,7 @@ services:
       - "bytedance.open.componentSecret=your componentSecret"
       - "bytedance.open.componentToken=your componentToken"
       - "bytedance.open.componentAesKey=your componentAesKey"
+      - "REDIS_HOST=bytedance-open-demo_redis_1"
     networks:
       - bytedanceNet
   redis:
@@ -24,6 +25,8 @@ services:
       - "6379:6379"
     expose:
       - "6379"
+    networks:
+      - bytedanceNet
   ngrok:
     image: "wernight/ngrok"
     command: ["ngrok", "http", "bytedance-open-demo_web_1:8080"]
