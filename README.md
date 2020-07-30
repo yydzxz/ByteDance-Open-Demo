@@ -31,10 +31,14 @@
     docker-compose up --build
   ```
 #### 5. 查询ngrok提供的外网地址
+  ##### Mac
   ```bash
   curl $(docker port bytedance-open-demo_ngrok_1 4040)/api/tunnels
   ```
-  - 然后就可以从public_url中找到所需的外网地址
+  ##### Windows
+  [点击查看外网地址](http://127.0.0.1:4040/api/tunnels)
+  
+  - 两种方式都可以从public_url中找到所需的外网地址
 
 ### 方式2: 普通启动方式
 #### 启动redis
