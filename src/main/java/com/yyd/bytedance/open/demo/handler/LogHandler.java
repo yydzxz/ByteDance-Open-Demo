@@ -1,6 +1,6 @@
 package com.yyd.bytedance.open.demo.handler;
 
-import cn.hutool.json.JSONUtil;
+import com.github.yydzxz.common.util.json.ByteDanceJsonBuilder;
 import com.github.yydzxz.open.api.IByteDanceOpenMessageHandler;
 import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
 import com.github.yydzxz.open.bean.message.ByteDanceOpenMessageHandleResult;
@@ -18,7 +18,7 @@ public class LogHandler implements IByteDanceOpenMessageHandler {
 
     @Override
     public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message, Map<String, Object> context) {
-        log.info("LogHandler开始处理消息: {}", JSONUtil.toJsonStr(message));
+        log.info("LogHandler开始处理消息: {}", ByteDanceJsonBuilder.instance().toJson(message));
         return new ByteDanceOpenMessageHandleResult();
     }
 }

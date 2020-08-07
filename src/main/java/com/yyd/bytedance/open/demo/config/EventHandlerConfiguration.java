@@ -6,6 +6,7 @@ import com.github.yydzxz.common.IByteDanceMessageDuplicateChecker;
 import com.github.yydzxz.common.redis.IByteDanceRedisOps;
 import com.github.yydzxz.open.api.ByteDanceOpenMessageRouter;
 import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
+import com.yyd.bytedance.open.demo.handler.AuthorizedEventHandler;
 import com.yyd.bytedance.open.demo.handler.CodeAuditEventHandler;
 import com.yyd.bytedance.open.demo.handler.LogHandler;
 import com.yyd.bytedance.open.demo.handler.ModifyAppIconEventHandler;
@@ -30,6 +31,9 @@ public class EventHandlerConfiguration {
 
     @Autowired
     private LogHandler logHandler;
+
+    @Autowired
+    private AuthorizedEventHandler authorizedEventHandler;
 
     @Autowired
     private UnauthorizedEventHandler unauthorizedEventHandler;
@@ -62,6 +66,7 @@ public class EventHandlerConfiguration {
         router.rule()
             .event(ByteDanceOpenMessage.EVENT_AUTHORIZED)
             .addHandler(logHandler)
+            .addHandler(authorizedEventHandler)
             .end();
 
         router.rule()

@@ -1,6 +1,6 @@
 package com.yyd.bytedance.open.demo.controller;
 
-import cn.hutool.json.JSONUtil;
+import com.github.yydzxz.common.util.json.ByteDanceJsonBuilder;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.request.code.CodeUploadRequest;
 import com.github.yydzxz.open.api.response.code.CodeAuditResponse;
@@ -38,7 +38,7 @@ public class ByteDanceCodeController {
     public CodeUploadResponse upload(String appid, @RequestBody CodeUploadQuery param){
         CodeUploadRequest request = new CodeUploadRequest();
         BeanUtils.copyProperties(param, request);
-        request.setExtJson(JSONUtil.toJsonStr(param.getExtJson()));
+        request.setExtJson(ByteDanceJsonBuilder.instance().toJson(param.getExtJson()));
         return byteDanceOpenService.getByteDanceOpenComponentService()
             .getOpenMiniProgramServiceByAppid(appid)
             .getByteDanceOpenMiniProgramCodeService()

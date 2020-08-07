@@ -51,7 +51,7 @@ public class ByteDanceNotifyController {
      */
     @RequestMapping("/{appid}/callback")
     public String callback(@PathVariable("appid") String appid, @RequestBody ReceiveTicketQuery receiveTicketQuery){
-        log.info("小程序[{}]接收到消息与事件推送", appid);
+        log.info("小程序[{}]接收到消息与事件推送: {}", appid, receiveTicketQuery);
         handleMessage(receiveTicketQuery);
         return "success";
     }

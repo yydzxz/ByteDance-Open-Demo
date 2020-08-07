@@ -1,0 +1,15 @@
+spring:
+  redis:
+    redisson:
+      config: classpath:redisson-single-unittest.yml
+
+bytedance:
+  open:
+    componentAppId: "unittestcomponentAppId"
+    componentSecret: "unittestcomponentSecret"
+    componentToken: "unittestcomponentToken"
+    componentAesKey: "unittestcomponentAesKey"
+
+
+test-app-info:
+  appid: "tt8468f2d51b52f838"
