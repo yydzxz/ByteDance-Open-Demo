@@ -19,7 +19,7 @@ import com.yyd.bytedance.open.demo.controller.query.info.AppModifyAppIntroQuery;
 import com.yyd.bytedance.open.demo.controller.query.info.AppModifyAppNameQuery;
 import com.yyd.bytedance.open.demo.controller.query.info.AppModifyServerDomainQuery;
 import com.yyd.bytedance.open.demo.controller.query.info.AppModifyWebviewDomainQuery;
-import com.yyd.bytedance.open.demo.controller.query.info.InfoQrCodeQuery;
+import com.yyd.bytedance.open.demo.controller.query.info.AppInfoQrCodeQuery;
 import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +62,7 @@ public class  ByteDanceInfoController {
      * @return
      */
     @PostMapping(value = "/qrcode", produces = {MediaType.IMAGE_PNG_VALUE})
-    public byte[] qrCode(String appid,@RequestBody InfoQrCodeQuery param){
+    public byte[] qrCode(String appid,@RequestBody AppInfoQrCodeQuery param){
         AppQrCodeRequest request = new AppQrCodeRequest();
         BeanUtils.copyProperties(param, request);
         return byteDanceOpenService.getByteDanceOpenComponentService()

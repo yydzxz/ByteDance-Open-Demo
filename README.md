@@ -1,5 +1,6 @@
 # ByteDance-Open-Demo
-- 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例。[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)
+- [字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)
+- 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例。全部接口使用RESTful风格
 - 提供了docker启动方式，包含redis和ngrok服务
 - 当前页面上的图片如果裂了，那么就需要科学上网o(￣ヘ￣o＃)，或者clone后查看images/gifs文件夹下对应的图片
 - 如果觉得用起来还不错╰(●’◡’●)╮，希望能够**star🌟**支持一下~~~
@@ -36,9 +37,9 @@
   curl $(docker port bytedance-open-demo_ngrok_1 4040)/api/tunnels
   ```
   ##### Windows
-    - [点击查看外网地址](http://127.0.0.1:4040/api/tunnels)
+   - [点击查看外网地址](http://127.0.0.1:4040/api/tunnels)
   
-  - 两种方式都可以从public_url中找到所需的外网地址
+两种方式都可以从**public_url**中找到所需的外网地址
 
 ### 方式2: 普通启动方式
 #### 启动redis

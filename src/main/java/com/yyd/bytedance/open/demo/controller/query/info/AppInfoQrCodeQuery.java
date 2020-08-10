@@ -9,7 +9,7 @@ import lombok.Data;
  * @date 2020/07/06
  **/
 @Data
-public class InfoQrCodeQuery {
+public class AppInfoQrCodeQuery {
     /**
      * 入参：current 或 audit 或 latest
      * current 线上版
