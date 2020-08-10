@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,7 +35,7 @@ public class ByteDanceMaterialController {
      * @throws IOException
      */
     @PostMapping("/pic/upload")
-    public UploadPicMaterialResponse uploadPicMaterial(MultipartFile materialFile, String materialType) throws IOException {
+    public UploadPicMaterialResponse uploadPicMaterial(@RequestParam("material_file") MultipartFile materialFile, @RequestParam("material_type") String materialType) throws IOException {
         UploadPicMaterialRequest request = new UploadPicMaterialRequest();
         request.setMaterialType(materialType);
         File file = File.createTempFile("bytedance-material", System.currentTimeMillis() + "");

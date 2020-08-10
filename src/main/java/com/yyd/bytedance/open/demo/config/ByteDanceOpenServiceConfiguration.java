@@ -41,7 +41,7 @@ public class ByteDanceOpenServiceConfiguration {
      */
     @Bean
     public IByteDanceHttpRequestService getByteDanceHttpRequestService(RestTemplate restTemplate){
-        return new RestTemplateByteDanceHttpRequestServiceImpl(restTemplate);
+        return new RestTemplateByteDanceHttpRequestServiceImpl();
     }
 
     @Bean

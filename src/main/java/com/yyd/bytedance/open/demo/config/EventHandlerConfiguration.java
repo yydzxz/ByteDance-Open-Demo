@@ -27,9 +27,6 @@ import org.springframework.context.annotation.Configuration;
 public class EventHandlerConfiguration {
 
     @Autowired
-    private IByteDanceRedisOps byteDanceRedisOps;
-
-    @Autowired
     private LogHandler logHandler;
 
     @Autowired
@@ -54,8 +51,12 @@ public class EventHandlerConfiguration {
     private ModifyAppIntroEventHandler modifyAppIntroEventHandler;
 
     @Bean
-    public ByteDanceOpenMessageRouter getByteDanceOpenMessageRouter(){
-        final IByteDanceMessageDuplicateChecker messageDuplicateChecker = new ByteDanceMessageInRedisDuplicateChecker(byteDanceRedisOps);
+    public IByteDanceMessageDuplicateChecker getByteDanceMessageDuplicateChecker(IByteDanceRedisOps byteDanceRedisOps){
+        return new ByteDanceMessageInRedisDuplicateChecker(byteDanceRedisOps);
+    }
+
+    @Bean
+    public ByteDanceOpenMessageRouter getByteDanceOpenMessageRouter(IByteDanceMessageDuplicateChecker messageDuplicateChecker){
         final ByteDanceOpenMessageRouter router = new ByteDanceOpenMessageRouter(messageDuplicateChecker);
         //注意，到底是要用event还是msgType，或者同时使用来匹配handler
         router.rule()

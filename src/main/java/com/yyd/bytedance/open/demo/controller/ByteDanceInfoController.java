@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -78,7 +79,7 @@ public class  ByteDanceInfoController {
      * @return
      */
     @GetMapping("/check_app_name")
-    public AppCheckAppNameResponse checkAppName(String appid, String appName){
+    public AppCheckAppNameResponse checkAppName(String appid,@RequestParam("app_name") String appName){
         return byteDanceOpenService.getByteDanceOpenComponentService()
             .getOpenMiniProgramServiceByAppid(appid)
             .getByteDanceOpenMiniProgramInfoService()

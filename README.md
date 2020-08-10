@@ -1,6 +1,6 @@
 # ByteDance-Open-Demo
 - [字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)
-- 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例。全部接口使用RESTful风格
+- 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例. 大部分参数和url跟字节跳动open api保持相同, 方便对照文档快速理解使用, 剩余的按照RESTful命名风格
 - 提供了docker启动方式，包含redis和ngrok服务
 - 当前页面上的图片如果裂了，那么就需要科学上网o(￣ヘ￣o＃)，或者clone后查看images/gifs文件夹下对应的图片
 - 如果觉得用起来还不错╰(●’◡’●)╮，希望能够**star🌟**支持一下~~~
@@ -32,6 +32,7 @@
     docker-compose up --build
   ```
 #### 5. 查询ngrok提供的外网地址
+  
   ##### Mac
   ```bash
   curl $(docker port bytedance-open-demo_ngrok_1 4040)/api/tunnels
