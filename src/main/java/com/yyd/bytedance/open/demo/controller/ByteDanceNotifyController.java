@@ -2,6 +2,7 @@ package com.yyd.bytedance.open.demo.controller;
 
 import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.message.ByteDanceOpenMessageResult;
 import com.github.yydzxz.open.message.ByteDanceOpenMessageRouter;
 import com.yyd.bytedance.open.demo.config.ByteDanceOpenProperties;
 import com.yyd.bytedance.open.demo.controller.query.auth.ReceiveTicketQuery;
@@ -77,7 +78,7 @@ public class ByteDanceNotifyController {
             log.error(e.getMessage(), e);
             return "failed";
         }
-        byteDanceOpenMessageRouter.route(message);
-        return "success";
+        ByteDanceOpenMessageResult result = byteDanceOpenMessageRouter.route(message);
+        return result.getDefaultResult();
     }
 }
