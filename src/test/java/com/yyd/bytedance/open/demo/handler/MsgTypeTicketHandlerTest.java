@@ -1,11 +1,12 @@
 package com.yyd.bytedance.open.demo.handler;
 
-import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
-import com.github.yydzxz.open.bean.message.ByteDanceOpenMessageHandleResult;
+import com.github.yydzxz.open.api.IByteDanceOpenService;
+import com.github.yydzxz.open.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.message.ByteDanceOpenMessageHandleResult;
 import java.util.Date;
 import java.util.Map;
 import org.junit.jupiter.api.AfterEach;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ class MsgTypeTicketHandlerTest {
 
     @Autowired
     private MsgTypeTicketHandler msgTypeTicketHandler;
+
+    @Autowired
+    private IByteDanceOpenService byteDanceOpenService;
 
     @Value("${local.server.port}")
     private int port;
@@ -42,6 +46,9 @@ class MsgTypeTicketHandlerTest {
         message.setEvent("PUSH");
         Map<String, Object> context = null;
         ByteDanceOpenMessageHandleResult result = msgTypeTicketHandler.handle(message, context);
-        assertEquals("success", result.getDefaultResult());
+
+        Assertions.assertEquals(message.getTicket(), byteDanceOpenService.getByteDanceOpenComponentService()
+            .getOpenConfigStorage()
+            .getComponentVerifyTicket());
     }
 }
