@@ -1,9 +1,9 @@
 package com.yyd.bytedance.open.demo.handler;
 
 import com.github.yydzxz.common.util.json.ByteDanceJsonBuilder;
-import com.github.yydzxz.open.api.IByteDanceOpenMessageHandler;
-import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
-import com.github.yydzxz.open.bean.message.ByteDanceOpenMessageHandleResult;
+import com.github.yydzxz.open.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.message.ByteDanceOpenMessageHandleResult;
+import com.github.yydzxz.open.message.IByteDanceOpenMessageHandler;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

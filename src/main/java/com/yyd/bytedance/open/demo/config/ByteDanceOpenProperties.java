@@ -1,5 +1,6 @@
 package com.yyd.bytedance.open.demo.config;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -32,6 +33,13 @@ public class ByteDanceOpenProperties {
      * 字节跳动三方平台的EncodingAESKey
      */
     private String componentAesKey;
+
+    private ServerDomain serverDomain;
+
+    @Data
+    public static class ServerDomain{
+        private List<String> request;
+    }
 
     @PostConstruct
     public void check(){

@@ -1,10 +1,12 @@
 package com.yyd.bytedance.open.demo.handler;
 
 
-import com.github.yydzxz.open.api.IByteDanceOpenMessageHandler;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
-import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
-import com.github.yydzxz.open.bean.message.ByteDanceOpenMessageHandleResult;
+import com.github.yydzxz.open.api.request.appinfo.AppModifyServerDomainRequest;
+import com.github.yydzxz.open.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.message.ByteDanceOpenMessageHandleResult;
+import com.github.yydzxz.open.message.IByteDanceOpenMessageHandler;
+import com.yyd.bytedance.open.demo.config.ByteDanceOpenProperties;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,32 @@ import org.springframework.stereotype.Component;
 public class AuthorizedEventHandler implements IByteDanceOpenMessageHandler {
 
     @Autowired
-    IByteDanceOpenService byteDanceOpenService;
+    private ByteDanceOpenProperties byteDanceOpenProperties;
+
+    @Autowired
+    private IByteDanceOpenService byteDanceOpenService;
 
     @Override
     public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message, Map<String, Object> context) {
+        byteDanceOpenService.getByteDanceOpenComponentService().getAuthorizerAccessTokenByAuthorizationCode(message.getAuthorizationCode());
+        AppModifyServerDomainRequest request = new AppModifyServerDomainRequest();
+        request.setAction("delete");
+        request.setRequest(byteDanceOpenProperties.getServerDomain().getRequest());
+        try {
+            byteDanceOpenService.getByteDanceOpenComponentService()
+                .getOpenMiniProgramServiceByAppid(message.getAppId())
+                .getByteDanceOpenMiniProgramInfoService()
+                .modifyServerDomain(request);
+        }catch (Exception e){
+            log.error("字节跳动小程序[{}]删除request域名: {} 失败", message.getAppId(), byteDanceOpenProperties.getServerDomain().getRequest());
+            log.error(e.getMessage(), e);
+        }
+
+        request.setAction("add");
+        byteDanceOpenService.getByteDanceOpenComponentService()
+            .getOpenMiniProgramServiceByAppid(message.getAppId())
+            .getByteDanceOpenMiniProgramInfoService()
+            .modifyServerDomain(request);
         return new ByteDanceOpenMessageHandleResult();
     }
 }

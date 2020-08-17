@@ -9,3 +9,6 @@ bytedance:
     componentSecret: "your componentSecret"
     componentToken: "your componentToken"
     componentAesKey: "your componentAesKey"
+    serverDomain:
+      request:
+        - "your.server.domain"

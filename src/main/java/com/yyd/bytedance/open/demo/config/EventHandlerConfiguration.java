@@ -1,11 +1,11 @@
 package com.yyd.bytedance.open.demo.config;
 
 
-import com.github.yydzxz.common.ByteDanceMessageInRedisDuplicateChecker;
-import com.github.yydzxz.common.IByteDanceMessageDuplicateChecker;
+import com.github.yydzxz.common.message.ByteDanceMessageInRedisDuplicateChecker;
+import com.github.yydzxz.common.message.IByteDanceMessageDuplicateChecker;
 import com.github.yydzxz.common.redis.IByteDanceRedisOps;
-import com.github.yydzxz.open.api.ByteDanceOpenMessageRouter;
-import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.message.ByteDanceOpenMessageRouter;
 import com.yyd.bytedance.open.demo.handler.AuthorizedEventHandler;
 import com.yyd.bytedance.open.demo.handler.CodeAuditEventHandler;
 import com.yyd.bytedance.open.demo.handler.LogHandler;

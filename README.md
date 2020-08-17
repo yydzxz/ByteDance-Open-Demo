@@ -2,7 +2,7 @@
 - [字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)
 - 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例. 大部分参数和url跟字节跳动open api保持相同, 方便对照文档快速理解使用, 剩余的按照RESTful命名风格
 - 提供了docker启动方式，包含redis和ngrok服务
-- 当前页面上的图片如果裂了，那么就需要科学上网o(￣ヘ￣o＃)，或者clone后查看images/gifs文件夹下对应的图片
+- 当前页面上的图片如果裂了，可以[尝试修改host](https://github.com/labuladong/fucking-algorithm/issues/271#issuecomment-620470589),如果还不行那么就需要科学上网o(￣ヘ￣o＃)，或者clone后查看images/gifs文件夹下对应的图片
 - 如果觉得用起来还不错╰(●’◡’●)╮，希望能够**star🌟**支持一下~~~
 - 如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现(详情见下面的[其他注意事项](#其他注意事项))。
 

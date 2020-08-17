@@ -1,8 +1,8 @@
 package com.yyd.bytedance.open.demo.controller;
 
-import com.github.yydzxz.open.api.ByteDanceOpenMessageRouter;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
-import com.github.yydzxz.open.bean.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.message.ByteDanceOpenMessage;
+import com.github.yydzxz.open.message.ByteDanceOpenMessageRouter;
 import com.yyd.bytedance.open.demo.config.ByteDanceOpenProperties;
 import com.yyd.bytedance.open.demo.controller.query.auth.ReceiveTicketQuery;
 import lombok.extern.slf4j.Slf4j;
