@@ -13,7 +13,7 @@
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-122557%402x.png)
     
 ## 配置ip白名单
-  - 把本机外网ip配置到[字节跳动第三方平台](https://open.microapp.bytedance.com)的白名单
+  - 把[本机外网ip](https://www.ipaddress.com/)配置到[字节跳动第三方平台](https://open.microapp.bytedance.com)的白名单
   - ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
 
 ## 启动项目
