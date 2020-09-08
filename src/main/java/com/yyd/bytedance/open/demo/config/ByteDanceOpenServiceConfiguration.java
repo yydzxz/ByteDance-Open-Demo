@@ -4,11 +4,15 @@ import com.github.yydzxz.common.redis.IByteDanceRedisOps;
 import com.github.yydzxz.common.redis.RedissonByteDanceRedisOps;
 import com.github.yydzxz.common.service.IByteDanceHttpRequestService;
 import com.github.yydzxz.common.service.impl.RestTemplateByteDanceHttpRequestServiceImpl;
+import com.github.yydzxz.common.util.json.GsonSerializer;
+import com.github.yydzxz.common.util.json.JacksonSerializer;
+import com.github.yydzxz.common.util.json.JsonSerializer;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.impl.ByteDanceOpenComponentServiceImpl;
 import com.github.yydzxz.open.api.impl.ByteDanceOpenInRedisConfigStorage;
 import com.github.yydzxz.open.api.impl.ByteDanceOpenServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.nustaq.kson.JSonSerializer;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -41,7 +45,7 @@ public class ByteDanceOpenServiceConfiguration {
      */
     @Bean
     public IByteDanceHttpRequestService getByteDanceHttpRequestService(RestTemplate restTemplate){
-        return new RestTemplateByteDanceHttpRequestServiceImpl();
+        return new RestTemplateByteDanceHttpRequestServiceImpl(restTemplate);
     }
 
     @Bean

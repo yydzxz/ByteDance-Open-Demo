@@ -1,5 +1,5 @@
 # ByteDance-Open-Demo
-- [字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)
+- [字节跳动小程序第三方接入文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)
 - 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例. 大部分参数和url跟字节跳动open api保持相同, 方便对照文档快速理解使用, 剩余的按照RESTful命名风格
 - 提供了docker启动方式，包含redis和ngrok服务
 - 当前页面上的图片如果裂了，可以[尝试修改host](https://github.com/labuladong/fucking-algorithm/issues/271#issuecomment-620470589),如果还不行那么就需要科学上网o(￣ヘ￣o＃)，或者clone后查看images/gifs文件夹下对应的图片
@@ -31,7 +31,7 @@
   ```bash
     docker-compose up --build
   ```
-#### 5. 查询ngrok提供的外网地址
+#### 5. 获取本机外网地址: 查询ngrok提供的外网地址
   
   ##### Mac
   ```bash
@@ -41,6 +41,10 @@
    - [点击查看外网地址](http://127.0.0.1:4040/api/tunnels)
   
 两种方式都可以从**public_url**中找到所需的外网地址
+
+##### 6. 配置 授权发起页域名,授权接收URL,消息与事件接收URL
+![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2431599530574_.pic_hd.jpg)
+![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2441599533989_.pic_hd.jpg)
 
 ### 方式2: 普通启动方式
 #### 启动redis
@@ -58,7 +62,7 @@
 
 - 如果想要使用jedis，可以自己实现一个`IByteDanceRedisOps`
 
-#### 内网穿透
+#### 获取本机外网地址: 内网穿透
   - 如果没有公网地址，那么需要使用内网穿透工具。比如[ngrok](https://ngrok.com/)
   - 如果使用ngrok，下载好后，根据不同的操作系统，在命令行执行
     ```bash
@@ -68,6 +72,9 @@
       ngrok.exe http 8080
     ```
     就能得到一个映射到8080端口（项目默认启动端口）的外网地址。
+    
+##### 配置 授权发起页域名 授权接收URL 消息与事件接收URL
+- [同上](6.+配置+授权发起页域名,授权接收URL,消息与事件接收URL)
 
 #### 启动本项目    
 - 启动项目后需要等待字节跳动服务器将ticket推送过来后（一般10分钟以内），才能进行后续的授权等api调用。如果一直没有推送，请到[字节跳动第三方平台](https://open.microapp.bytedance.com)，选择自己创建的第三方平台确认推送地址是否配置正确

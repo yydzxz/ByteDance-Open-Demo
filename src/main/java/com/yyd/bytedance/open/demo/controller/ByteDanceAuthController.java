@@ -2,7 +2,7 @@ package com.yyd.bytedance.open.demo.controller;
 
 import com.github.yydzxz.common.error.ByteDanceErrorException;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
-import com.github.yydzxz.open.api.response.auth.GetAuthorizerAccessTokenReponse;
+import com.github.yydzxz.open.api.response.auth.GetAuthorizerAccessTokenResponse;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,7 +49,7 @@ public class ByteDanceAuthController {
     }
 
     @GetMapping("/jump")
-    public GetAuthorizerAccessTokenReponse jump(@RequestParam("authorization_code") String authorizationCode){
+    public GetAuthorizerAccessTokenResponse jump(@RequestParam("authorization_code") String authorizationCode){
         log.info("authorizationCode: {}", authorizationCode);
         return byteDanceOpenService.getByteDanceOpenComponentService().getAuthorizerAccessTokenByAuthorizationCode(authorizationCode);
     }
