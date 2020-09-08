@@ -43,8 +43,9 @@
 两种方式都可以从**public_url**中找到所需的外网地址
 
 ##### 6. 配置 授权发起页域名,授权接收URL,消息与事件接收URL
-![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2431599530574_.pic_hd.jpg)
-![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2441599533989_.pic_hd.jpg)
+- 使用从上一步获取的外网地址, 去[字节跳动第三方平台](https://open.microapp.bytedance.com)配置以下信息:
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2431599530574_.pic_hd.jpg)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2441599533989_.pic_hd.jpg)
 
 ### 方式2: 普通启动方式
 #### 1. 启动redis
