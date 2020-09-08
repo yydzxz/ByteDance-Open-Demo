@@ -47,7 +47,7 @@
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2441599533989_.pic_hd.jpg)
 
 ### 方式2: 普通启动方式
-#### 启动redis
+#### 1. 启动redis
 - `access_token`等数据都是保存在redis中，所以需要一个redis服务
 
 - 为了方便使用，项目中提供了一个默认的`redis.conf`, 位于`docker/redis/redis.conf`, 只修改了两个配置:
@@ -62,7 +62,7 @@
 
 - 如果想要使用jedis，可以自己实现一个`IByteDanceRedisOps`
 
-#### 获取本机外网地址: 内网穿透
+#### 2. 获取本机外网地址: 内网穿透
   - 如果没有公网地址，那么需要使用内网穿透工具。比如[ngrok](https://ngrok.com/)
   - 如果使用ngrok，下载好后，根据不同的操作系统，在命令行执行
     ```bash
@@ -73,10 +73,10 @@
     ```
     就能得到一个映射到8080端口（项目默认启动端口）的外网地址。
     
-##### 配置 授权发起页域名 授权接收URL 消息与事件接收URL
+#### 3. 配置 授权发起页域名,授权接收URL,消息与事件接收URL
 - [同上](#6-配置-授权发起页域名授权接收url消息与事件接收url)
 
-#### 启动本项目    
+#### 4. 启动本项目    
 - 启动项目后需要等待字节跳动服务器将ticket推送过来后（一般10分钟以内），才能进行后续的授权等api调用。如果一直没有推送，请到[字节跳动第三方平台](https://open.microapp.bytedance.com)，选择自己创建的第三方平台确认推送地址是否配置正确
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-130942%402x.png)
 
