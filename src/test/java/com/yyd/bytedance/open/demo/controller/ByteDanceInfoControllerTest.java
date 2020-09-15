@@ -2,11 +2,8 @@ package com.yyd.bytedance.open.demo.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.github.yydzxz.common.util.json.GsonSerializer;
-import com.github.yydzxz.open.api.response.appinfo.AppInfoResponse;
+import com.github.yydzxz.open.api.v1.response.appinfo.AppInfoResponse;
 import com.yyd.bytedance.open.demo.config.TestAppInfoProperties;
-import jodd.http.HttpRequest;
-import jodd.http.HttpResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

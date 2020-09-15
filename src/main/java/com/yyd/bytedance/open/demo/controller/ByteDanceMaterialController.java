@@ -1,9 +1,9 @@
 package com.yyd.bytedance.open.demo.controller;
 
 import cn.hutool.core.io.FileUtil;
-import com.github.yydzxz.open.api.IByteDanceOpenService;
-import com.github.yydzxz.open.api.request.material.UploadPicMaterialRequest;
-import com.github.yydzxz.open.api.response.material.UploadPicMaterialResponse;
+import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.v1.request.material.UploadPicMaterialRequest;
+import com.github.yydzxz.open.api.v1.response.material.UploadPicMaterialResponse;
 import java.io.File;
 import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;

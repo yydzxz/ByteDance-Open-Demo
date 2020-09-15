@@ -1,12 +1,12 @@
 package com.yyd.bytedance.open.demo.controller;
 
-import com.github.yydzxz.open.api.IByteDanceOpenService;
-import com.github.yydzxz.open.api.request.template.TemplateAddTplRequest;
-import com.github.yydzxz.open.api.request.template.TemplateDelTplRequest;
-import com.github.yydzxz.open.api.response.template.TemplateAddTplResponse;
-import com.github.yydzxz.open.api.response.template.TemplateDelTplResponse;
-import com.github.yydzxz.open.api.response.template.TemplateGetDraftListResponse;
-import com.github.yydzxz.open.api.response.template.TemplateGetTplListResponse;
+import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.v1.request.template.TemplateAddTplRequest;
+import com.github.yydzxz.open.api.v1.request.template.TemplateDelTplRequest;
+import com.github.yydzxz.open.api.v1.response.template.TemplateAddTplResponse;
+import com.github.yydzxz.open.api.v1.response.template.TemplateDelTplResponse;
+import com.github.yydzxz.open.api.v1.response.template.TemplateGetDraftListResponse;
+import com.github.yydzxz.open.api.v1.response.template.TemplateGetTplListResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

@@ -4,15 +4,11 @@ import com.github.yydzxz.common.redis.IByteDanceRedisOps;
 import com.github.yydzxz.common.redis.RedissonByteDanceRedisOps;
 import com.github.yydzxz.common.service.IByteDanceHttpRequestService;
 import com.github.yydzxz.common.service.impl.RestTemplateByteDanceHttpRequestServiceImpl;
-import com.github.yydzxz.common.util.json.GsonSerializer;
-import com.github.yydzxz.common.util.json.JacksonSerializer;
-import com.github.yydzxz.common.util.json.JsonSerializer;
-import com.github.yydzxz.open.api.IByteDanceOpenService;
-import com.github.yydzxz.open.api.impl.ByteDanceOpenComponentServiceImpl;
-import com.github.yydzxz.open.api.impl.ByteDanceOpenInRedisConfigStorage;
-import com.github.yydzxz.open.api.impl.ByteDanceOpenServiceImpl;
+import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.v1.impl.ByteDanceOpenInRedisConfigStorage;
+import com.github.yydzxz.open.api.v1.impl.ByteDanceOpenServiceImpl;
+import com.github.yydzxz.open.api.v2.impl.ByteDanceOpenV2ComponentServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.nustaq.kson.JSonSerializer;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -72,7 +68,7 @@ public class ByteDanceOpenServiceConfiguration {
         ByteDanceOpenServiceImpl byteDanceOpenService = new ByteDanceOpenServiceImpl();
         byteDanceOpenService.setByteDanceHttpRequestService(byteDanceHttpRequestService);
         byteDanceOpenService.setRedissonByteDanceRedisOps(byteDanceRedisOps);
-        byteDanceOpenService.setByteDanceOpenComponentService(new ByteDanceOpenComponentServiceImpl(byteDanceOpenService));
+        byteDanceOpenService.setByteDanceOpenComponentService(new ByteDanceOpenV2ComponentServiceImpl(byteDanceOpenService));
         byteDanceOpenService.setByteDanceOpenConfigStorage(byteDanceOpenInRedisConfigStorage);
         return byteDanceOpenService;
     }

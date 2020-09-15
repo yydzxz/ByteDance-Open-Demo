@@ -1,12 +1,12 @@
 package com.yyd.bytedance.open.demo.controller;
 
 import com.github.yydzxz.common.util.json.ByteDanceJsonBuilder;
-import com.github.yydzxz.open.api.IByteDanceOpenService;
-import com.github.yydzxz.open.api.request.code.CodeUploadRequest;
-import com.github.yydzxz.open.api.response.code.CodeAuditResponse;
-import com.github.yydzxz.open.api.response.code.CodeReleaseResponse;
-import com.github.yydzxz.open.api.response.code.CodeRollbackResponse;
-import com.github.yydzxz.open.api.response.code.CodeUploadResponse;
+import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.v1.request.code.CodeUploadRequest;
+import com.github.yydzxz.open.api.v1.response.code.CodeAuditResponse;
+import com.github.yydzxz.open.api.v1.response.code.CodeReleaseResponse;
+import com.github.yydzxz.open.api.v1.response.code.CodeRollbackResponse;
+import com.github.yydzxz.open.api.v1.response.code.CodeUploadResponse;
 import com.yyd.bytedance.open.demo.controller.query.code.CodeUploadQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

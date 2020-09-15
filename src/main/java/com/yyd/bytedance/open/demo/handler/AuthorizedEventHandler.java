@@ -1,8 +1,8 @@
 package com.yyd.bytedance.open.demo.handler;
 
 
-import com.github.yydzxz.open.api.IByteDanceOpenService;
-import com.github.yydzxz.open.api.request.appinfo.AppModifyServerDomainRequest;
+import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.v1.request.appinfo.AppModifyServerDomainRequest;
 import com.github.yydzxz.open.message.ByteDanceOpenMessage;
 import com.github.yydzxz.open.message.ByteDanceOpenMessageHandleResult;
 import com.github.yydzxz.open.message.IByteDanceOpenMessageHandler;
