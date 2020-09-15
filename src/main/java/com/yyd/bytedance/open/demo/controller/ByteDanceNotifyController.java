@@ -1,6 +1,6 @@
 package com.yyd.bytedance.open.demo.controller;
 
-import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.message.ByteDanceOpenMessage;
 import com.github.yydzxz.open.message.ByteDanceOpenMessageResult;
 import com.github.yydzxz.open.message.ByteDanceOpenMessageRouter;

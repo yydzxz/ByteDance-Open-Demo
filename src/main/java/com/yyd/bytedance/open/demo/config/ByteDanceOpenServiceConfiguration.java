@@ -4,9 +4,10 @@ import com.github.yydzxz.common.redis.IByteDanceRedisOps;
 import com.github.yydzxz.common.redis.RedissonByteDanceRedisOps;
 import com.github.yydzxz.common.service.IByteDanceHttpRequestService;
 import com.github.yydzxz.common.service.impl.RestTemplateByteDanceHttpRequestServiceImpl;
-import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
-import com.github.yydzxz.open.api.v1.impl.ByteDanceOpenInRedisConfigStorage;
-import com.github.yydzxz.open.api.v1.impl.ByteDanceOpenServiceImpl;
+import com.github.yydzxz.open.api.IByteDanceOpenService;
+import com.github.yydzxz.open.api.impl.ByteDanceOpenInRedisConfigStorage;
+import com.github.yydzxz.open.api.impl.ByteDanceOpenServiceImpl;
+import com.github.yydzxz.open.api.v1.impl.ByteDanceOpenV1ComponentServiceImpl;
 import com.github.yydzxz.open.api.v2.impl.ByteDanceOpenV2ComponentServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RedissonClient;
@@ -62,13 +63,21 @@ public class ByteDanceOpenServiceConfiguration {
         return byteDanceOpenInRedisConfigStorage;
     }
 
+    /**
+     * v1 不支持预设置分账比例 new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService)
+     * v2 支持预设置分账比例（建议使用） new ByteDanceOpenV2ComponentServiceImpl(byteDanceOpenService)
+     * @param byteDanceHttpRequestService
+     * @param byteDanceRedisOps
+     * @param byteDanceOpenInRedisConfigStorage
+     * @return
+     */
     @Bean
     public IByteDanceOpenService getIByteDanceOpenService(IByteDanceHttpRequestService byteDanceHttpRequestService,
         IByteDanceRedisOps byteDanceRedisOps, ByteDanceOpenInRedisConfigStorage byteDanceOpenInRedisConfigStorage){
-        ByteDanceOpenServiceImpl byteDanceOpenService = new ByteDanceOpenServiceImpl();
+        IByteDanceOpenService byteDanceOpenService = new ByteDanceOpenServiceImpl();
         byteDanceOpenService.setByteDanceHttpRequestService(byteDanceHttpRequestService);
-        byteDanceOpenService.setRedissonByteDanceRedisOps(byteDanceRedisOps);
-        byteDanceOpenService.setByteDanceOpenComponentService(new ByteDanceOpenV2ComponentServiceImpl(byteDanceOpenService));
+        byteDanceOpenService.setByteDanceRedisOps(byteDanceRedisOps);
+        byteDanceOpenService.setByteDanceOpenComponentService(new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService));
         byteDanceOpenService.setByteDanceOpenConfigStorage(byteDanceOpenInRedisConfigStorage);
         return byteDanceOpenService;
     }

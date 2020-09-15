@@ -1,7 +1,7 @@
 package com.yyd.bytedance.open.demo.controller;
 
 import cn.hutool.core.io.FileUtil;
-import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.v1.request.material.UploadPicMaterialRequest;
 import com.github.yydzxz.open.api.v1.response.material.UploadPicMaterialResponse;
 import java.io.File;

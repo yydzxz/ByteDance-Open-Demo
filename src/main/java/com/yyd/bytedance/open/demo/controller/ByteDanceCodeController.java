@@ -1,7 +1,7 @@
 package com.yyd.bytedance.open.demo.controller;
 
 import com.github.yydzxz.common.util.json.ByteDanceJsonBuilder;
-import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.v1.request.code.CodeUploadRequest;
 import com.github.yydzxz.open.api.v1.response.code.CodeAuditResponse;
 import com.github.yydzxz.open.api.v1.response.code.CodeReleaseResponse;

@@ -1,8 +1,9 @@
 package com.yyd.bytedance.open.demo.controller;
 
 import com.github.yydzxz.common.error.ByteDanceErrorException;
-import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.v1.response.auth.GetAuthorizerAccessTokenResponse;
+import com.github.yydzxz.open.api.v2.request.auth.GetPreAuthCodeRequest;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +39,9 @@ public class ByteDanceAuthController {
         String scheme = request.getScheme();
         String url = scheme + "://"+host+"/bytedance/auth/jump";
         try {
+            GetPreAuthCodeRequest getPreAuthCodeRequest = new GetPreAuthCodeRequest();
+            getPreAuthCodeRequest.setShareAmount(10);
+            getPreAuthCodeRequest.setShareRatio(10);
             url = byteDanceOpenService.getByteDanceOpenComponentService().getPreAuthUrl(url);
             // 添加来源，解决302跳转来源丢失的问题
             response.addHeader("Referer", scheme + "://"+host);

@@ -1,7 +1,7 @@
 package com.yyd.bytedance.open.demo.handler;
 
 import com.github.yydzxz.common.util.json.ByteDanceJsonBuilder;
-import com.github.yydzxz.open.api.v1.IByteDanceOpenService;
+import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.message.ByteDanceOpenMessage;
 import com.github.yydzxz.open.message.ByteDanceOpenMessageHandleResult;
 import com.github.yydzxz.open.message.IByteDanceOpenMessageHandler;
