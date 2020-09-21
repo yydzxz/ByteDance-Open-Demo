@@ -25,8 +25,8 @@ public class MsgTypeTicketHandler implements IByteDanceOpenMessageHandler {
     @Override
     public ByteDanceOpenMessageHandleResult handle(ByteDanceOpenMessage message, Map<String, Object> context) {
         log.info("MsgTypeTicketHandler 开始处理消息: {}", ByteDanceJsonBuilder.instance().toJson(message));
-        byteDanceOpenService.getByteDanceOpenComponentService()
-            .getOpenConfigStorage()
+        byteDanceOpenService
+            .getByteDanceOpenConfigStorage()
             .setComponentVerifyTicket(message.getTicket());
         return new ByteDanceOpenMessageHandleResult();
     }

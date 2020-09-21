@@ -1,4 +1,4 @@
-package com.yyd.bytedance.open.demo.controller;
+package com.yyd.bytedance.open.demo.controller.v1;
 
 import com.github.yydzxz.common.error.ByteDanceErrorException;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @Slf4j
 @RestController
-@RequestMapping("/bytedance/auth")
-public class ByteDanceAuthController {
+@RequestMapping("/bytedance/v1/auth")
+public class ByteDanceV1AuthController {
 
     @Autowired
     private IByteDanceOpenService byteDanceOpenService;
@@ -39,10 +39,7 @@ public class ByteDanceAuthController {
         String scheme = request.getScheme();
         String url = scheme + "://"+host+"/bytedance/auth/jump";
         try {
-            GetPreAuthCodeRequest getPreAuthCodeRequest = new GetPreAuthCodeRequest();
-            getPreAuthCodeRequest.setShareAmount(10);
-            getPreAuthCodeRequest.setShareRatio(10);
-            url = byteDanceOpenService.getByteDanceOpenComponentService().getPreAuthUrl(url);
+            url = byteDanceOpenService.getByteDanceOpenV1ComponentService().getPreAuthUrl(url);
             // 添加来源，解决302跳转来源丢失的问题
             response.addHeader("Referer", scheme + "://"+host);
             response.sendRedirect(url);
@@ -55,7 +52,7 @@ public class ByteDanceAuthController {
     @GetMapping("/jump")
     public GetAuthorizerAccessTokenResponse jump(@RequestParam("authorization_code") String authorizationCode){
         log.info("authorizationCode: {}", authorizationCode);
-        return byteDanceOpenService.getByteDanceOpenComponentService().getAuthorizerAccessTokenByAuthorizationCode(authorizationCode);
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService().getAuthorizerAccessTokenByAuthorizationCode(authorizationCode);
     }
 
     @GetMapping("/{appid}/authorizer_access_token")

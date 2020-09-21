@@ -77,7 +77,10 @@ public class ByteDanceOpenServiceConfiguration {
         IByteDanceOpenService byteDanceOpenService = new ByteDanceOpenServiceImpl();
         byteDanceOpenService.setByteDanceHttpRequestService(byteDanceHttpRequestService);
         byteDanceOpenService.setByteDanceRedisOps(byteDanceRedisOps);
-        byteDanceOpenService.setByteDanceOpenComponentService(new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService));
+
+        byteDanceOpenService.setByteDanceOpenV1ComponentService(new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService));
+        byteDanceOpenService.setByteDanceOpenV2ComponentService(new ByteDanceOpenV2ComponentServiceImpl(byteDanceOpenService));
+
         byteDanceOpenService.setByteDanceOpenConfigStorage(byteDanceOpenInRedisConfigStorage);
         return byteDanceOpenService;
     }

@@ -47,8 +47,6 @@ class MsgTypeTicketHandlerTest {
         Map<String, Object> context = null;
         ByteDanceOpenMessageHandleResult result = msgTypeTicketHandler.handle(message, context);
 
-        Assertions.assertEquals(message.getTicket(), byteDanceOpenService.getByteDanceOpenComponentService()
-            .getOpenConfigStorage()
-            .getComponentVerifyTicket());
+        Assertions.assertEquals(message.getTicket(), byteDanceOpenService.getByteDanceOpenConfigStorage().getComponentVerifyTicket());
     }
 }

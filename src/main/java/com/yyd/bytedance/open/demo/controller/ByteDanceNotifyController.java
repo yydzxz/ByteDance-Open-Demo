@@ -4,6 +4,7 @@ import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.message.ByteDanceOpenMessage;
 import com.github.yydzxz.open.message.ByteDanceOpenMessageResult;
 import com.github.yydzxz.open.message.ByteDanceOpenMessageRouter;
+import com.github.yydzxz.open.util.SignUtil;
 import com.yyd.bytedance.open.demo.config.ByteDanceOpenProperties;
 import com.yyd.bytedance.open.demo.controller.query.auth.ReceiveTicketQuery;
 import lombok.extern.slf4j.Slf4j;
@@ -23,8 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/bytedance/notify")
 public class ByteDanceNotifyController {
-    @Autowired
-    private IByteDanceOpenService byteDanceOpenService;
 
     @Autowired
     private ByteDanceOpenProperties byteDanceOpenProperties;
@@ -59,8 +58,7 @@ public class ByteDanceNotifyController {
 
 
     private String handleMessage(ReceiveTicketQuery receiveTicketQuery){
-        boolean checkSignatureSuccess = byteDanceOpenService.getByteDanceOpenComponentService()
-            .checkSignature(receiveTicketQuery.getMsgSignature(),
+        boolean checkSignatureSuccess = SignUtil.checkSignature(receiveTicketQuery.getMsgSignature(),
                 byteDanceOpenProperties.getComponentToken(),
                 receiveTicketQuery.getTimeStamp(),
                 receiveTicketQuery.getNonce(),

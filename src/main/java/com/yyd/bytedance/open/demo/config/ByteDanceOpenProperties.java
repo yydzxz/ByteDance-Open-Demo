@@ -44,7 +44,7 @@ public class ByteDanceOpenProperties {
     @PostConstruct
     public void check(){
         if("your componentAppId".equals(componentAppId)){
-            throw new RuntimeException("请先在application-dev.yml设置自己的第三方平台信息!");
+            throw new RuntimeException("请先在application-dev.yml或者docker-compose.yml中设置自己的第三方平台信息!");
         }
     }
 }

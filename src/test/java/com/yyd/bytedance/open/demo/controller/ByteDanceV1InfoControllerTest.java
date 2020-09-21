@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootTest( webEnvironment = WebEnvironment.RANDOM_PORT, properties = "spring.profiles.active=unittest")
-class ByteDanceInfoControllerTest {
+class ByteDanceV1InfoControllerTest {
 
     private RestTemplate restTemplate = new RestTemplate();
 

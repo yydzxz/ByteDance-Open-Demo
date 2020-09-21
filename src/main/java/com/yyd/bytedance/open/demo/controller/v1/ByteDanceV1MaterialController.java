@@ -1,4 +1,4 @@
-package com.yyd.bytedance.open.demo.controller;
+package com.yyd.bytedance.open.demo.controller.v1;
 
 import cn.hutool.core.io.FileUtil;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
@@ -21,8 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
  **/
 @Slf4j
 @RestController
-@RequestMapping("/bytedance/material")
-public class ByteDanceMaterialController {
+@RequestMapping("/bytedance/v1/miniprogram/material")
+public class ByteDanceV1MaterialController {
 
     @Autowired
     private IByteDanceOpenService byteDanceOpenService;
@@ -41,7 +41,7 @@ public class ByteDanceMaterialController {
         File file = File.createTempFile("bytedance-material", System.currentTimeMillis() + "");
         FileUtil.writeBytes(materialFile.getBytes(), file);
         request.setMaterialFile(file);
-        return byteDanceOpenService.getByteDanceOpenComponentService()
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService()
             .getByteDanceOpenMaterialService()
             .uploadPicMaterial(request);
     }

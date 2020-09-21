@@ -1,4 +1,4 @@
-package com.yyd.bytedance.open.demo.controller;
+package com.yyd.bytedance.open.demo.controller.v1;
 
 import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.v1.request.template.TemplateAddTplRequest;
@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @Slf4j
 @RestController
-@RequestMapping("/bytedance/template")
-public class ByteDanceTemplateController {
+@RequestMapping("/bytedance/v1/template")
+public class ByteDanceV1TemplateController {
 
     @Autowired
     private IByteDanceOpenService byteDanceOpenService;
@@ -35,7 +35,7 @@ public class ByteDanceTemplateController {
      */
     @GetMapping("/draft/list")
     public TemplateGetDraftListResponse draftList(){
-        return byteDanceOpenService.getByteDanceOpenComponentService().getByteDanceOpenTemplateService().getDraftList();
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService().getByteDanceOpenTemplateService().getDraftList();
     }
 
     /**
@@ -47,7 +47,7 @@ public class ByteDanceTemplateController {
     public TemplateAddTplResponse addTpl(@PathVariable("draftId") Integer draftId){
         TemplateAddTplRequest request = new TemplateAddTplRequest();
         request.setDraftId(draftId);
-        return byteDanceOpenService.getByteDanceOpenComponentService().getByteDanceOpenTemplateService().addTpl(request);
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService().getByteDanceOpenTemplateService().addTpl(request);
     }
 
     /**
@@ -59,7 +59,7 @@ public class ByteDanceTemplateController {
     public TemplateDelTplResponse delTpl(@PathVariable("templateId") Integer templateId){
         TemplateDelTplRequest request = new TemplateDelTplRequest();
         request.setTemplateId(templateId);
-        return byteDanceOpenService.getByteDanceOpenComponentService().getByteDanceOpenTemplateService().delTpl(request);
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService().getByteDanceOpenTemplateService().delTpl(request);
     }
 
 
@@ -69,6 +69,6 @@ public class ByteDanceTemplateController {
      */
     @GetMapping("/list")
     public TemplateGetTplListResponse getTplList(){
-        return byteDanceOpenService.getByteDanceOpenComponentService().getByteDanceOpenTemplateService().getTplList();
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService().getByteDanceOpenTemplateService().getTplList();
     }
 }
