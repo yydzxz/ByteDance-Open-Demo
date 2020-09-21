@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/09/21
  **/
 @RestController
-@RequestMapping("/bytedance/miniprogram/v2/code")
+@RequestMapping("/bytedance/v2/miniprogram/code")
 public class ByteDanceV2CodeController {
 
     @Autowired

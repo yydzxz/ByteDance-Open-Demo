@@ -37,7 +37,7 @@ public class ByteDanceV1AuthController {
     public void gotoPreAuthUrl(HttpServletRequest request, HttpServletResponse response){
         String host = request.getHeader("host");
         String scheme = request.getScheme();
-        String url = scheme + "://"+host+"/bytedance/auth/jump";
+        String url = scheme + "://"+host+"/bytedance/v1/auth/jump";
         try {
             url = byteDanceOpenService.getByteDanceOpenV1ComponentService().getPreAuthUrl(url);
             // 添加来源，解决302跳转来源丢失的问题

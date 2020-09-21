@@ -37,7 +37,7 @@ public class ByteDanceV2AuthController {
     public void v2GotoPreAuthUrl(HttpServletRequest request, HttpServletResponse response){
         String host = request.getHeader("host");
         String scheme = request.getScheme();
-        String url = scheme + "://"+host+"/bytedance/auth/jump";
+        String url = scheme + "://"+host+"/bytedance/v2/auth/jump";
         try {
             GetPreAuthCodeRequest getPreAuthCodeRequest = new GetPreAuthCodeRequest();
             getPreAuthCodeRequest.setShareAmount(10);
