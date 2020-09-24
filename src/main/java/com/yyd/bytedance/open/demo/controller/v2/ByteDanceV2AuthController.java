@@ -34,14 +34,14 @@ public class ByteDanceV2AuthController {
     }
 
     @GetMapping("/goto_auth_url")
-    public void v2GotoPreAuthUrl(HttpServletRequest request, HttpServletResponse response){
+    public void gotoPreAuthUrl(HttpServletRequest request, HttpServletResponse response){
         String host = request.getHeader("host");
         String scheme = request.getScheme();
         String url = scheme + "://"+host+"/bytedance/v2/auth/jump";
+        GetPreAuthCodeRequest getPreAuthCodeRequest = new GetPreAuthCodeRequest();
+        getPreAuthCodeRequest.setShareAmount(10);
+        getPreAuthCodeRequest.setShareRatio(10);
         try {
-            GetPreAuthCodeRequest getPreAuthCodeRequest = new GetPreAuthCodeRequest();
-            getPreAuthCodeRequest.setShareAmount(10);
-            getPreAuthCodeRequest.setShareRatio(10);
             url = byteDanceOpenService.getByteDanceOpenV2ComponentService().getPreAuthUrl(url, getPreAuthCodeRequest);
             // 添加来源，解决302跳转来源丢失的问题
             response.addHeader("Referer", scheme + "://"+host);
