@@ -10,11 +10,11 @@
 - 先在[字节跳动小程序管理后台](https://microapp.bytedance.com)注册一个账号。
 - [字节跳动小程序管理后台](https://microapp.bytedance.com)账号自带一个[字节跳动第三方平台](https://open.microapp.bytedance.com)账号（登录小程序管理后台后，进入第三方平台直接就是登录状态），创建一个第三平台后，将第三方平台的相关数据填入
 `application-dev.yml`
-![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-122557%402x.png)
+![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-122557%402x.png?raw=true)
     
 ## 配置ip白名单
   - 把[本机外网ip](https://www.ipaddress.com/)配置到[字节跳动第三方平台](https://open.microapp.bytedance.com)的白名单
-  - ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png)
+  - ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210903%402x.png?raw=true)
 
 ## 启动项目
 ### 方式1: docker启动方式
@@ -44,8 +44,8 @@
 
 ##### 6. 配置 授权发起页域名,授权接收URL,消息与事件接收URL
 - 使用从上一步获取的外网地址, 去[字节跳动第三方平台](https://open.microapp.bytedance.com)配置以下信息:
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2431599530574_.pic_hd.jpg)
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2441599533989_.pic_hd.jpg)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2431599530574_.pic_hd.jpg?raw=true)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/2441599533989_.pic_hd.jpg?raw=true)
 
 ### 方式2: 普通启动方式
 #### 1. 启动redis
@@ -79,7 +79,7 @@
 
 #### 4. 启动本项目    
 - 启动项目后需要等待字节跳动服务器将ticket推送过来后（一般10分钟以内），才能进行后续的授权等api调用。如果一直没有推送，请到[字节跳动第三方平台](https://open.microapp.bytedance.com)，选择自己创建的第三方平台确认推送地址是否配置正确
-![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-130942%402x.png)
+![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200714-130942%402x.png?raw=true)
 
 
 ## 任选一种方式启动项目后，进行接口测试
@@ -88,7 +88,7 @@
   ### 网页授权
   - 先去[字节跳动小程序管理后台](https://microapp.bytedance.com/app/applist)创建一个小程序
   - 然后去[字节跳动第三方平台](https://open.microapp.bytedance.com/tplist)将刚才创建的小程序的appid添加到【授权测试小程序列表】，以便测试
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210508%402x.png)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210508%402x.png?raw=true)
   
   - 浏览器中输入授权地址: [https://你的公网地址或者ngrok生成的公网地址/bytedance/auth/goto_auth_url_show]()
   ### 模版管理
@@ -100,12 +100,12 @@
 
 ## 其他注意事项
   - 字节跳动授权流程中的小bug。从gif中可以看到，第一次授权跳转到字节跳动页面时，显示 **授权信息异常** 。必须要管理员先登录小程序管理后台，授权流程才能正确进行。
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/gifs/auth_bug.gif)
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1991595100618_.pic_hd.jpg)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/gifs/auth_bug.gif?raw=true)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1991595100618_.pic_hd.jpg?raw=true)
   - 加解密异常 java.security.InvalidKeyException: Illegal key size
     - 因为秘钥长度超过128位,在某些jdk版本中默认只支持128位以下的秘钥
     - 解决方案为使用无限制的策略文件替换 $JAVA_HOME\jre\lib\security 下的策略文件
     - 下载地址
       - jdk8 [https://www.oracle.com/java/technologies/javase-jce8-downloads.html](https://www.oracle.com/java/technologies/javase-jce8-downloads.html)
   - 目前字节跳动的[字节跳动开放平台文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)还在不断更新，我也会根据他的更新不断新增接口。如果有接口没有及时更新，可以给我提issue或者PR，着急的话也可以通过sdk暴露的接口自己实现。
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1407E96CAA9184803B3BF7D53A80649E.jpg)
+  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1407E96CAA9184803B3BF7D53A80649E.jpg?raw=true)
