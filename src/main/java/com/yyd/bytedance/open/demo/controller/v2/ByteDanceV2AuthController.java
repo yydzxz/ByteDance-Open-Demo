@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 授权认证
+ * 授权认证 v2
+ * 支持预设置分账比例（建议使用） new ByteDanceOpenV2ComponentServiceImpl(byteDanceOpenService)
  * @author yangyidian
  * @date 2020/06/28
  **/

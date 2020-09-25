@@ -3,7 +3,6 @@ package com.yyd.bytedance.open.demo.controller.v1;
 import com.github.yydzxz.common.error.ByteDanceErrorException;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.v1.response.auth.GetAuthorizerAccessTokenResponse;
-import com.github.yydzxz.open.api.v2.request.auth.GetPreAuthCodeRequest;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 授权认证
+ * 授权认证v1
+ * 不支持预设置分账比例 new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService)
  * @author yangyidian
  * @date 2020/06/28
  **/

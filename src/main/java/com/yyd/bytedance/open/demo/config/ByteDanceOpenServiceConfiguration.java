@@ -64,8 +64,6 @@ public class ByteDanceOpenServiceConfiguration {
     }
 
     /**
-     * v1 不支持预设置分账比例 new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService)
-     * v2 支持预设置分账比例（建议使用） new ByteDanceOpenV2ComponentServiceImpl(byteDanceOpenService)
      * @param byteDanceHttpRequestClient
      * @param byteDanceRedisOps
      * @param byteDanceOpenInRedisConfigStorage
