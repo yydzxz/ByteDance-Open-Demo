@@ -1,9 +1,9 @@
 package com.yyd.bytedance.open.demo.controller.v2;
 
 import com.github.yydzxz.open.api.IByteDanceOpenService;
+import com.github.yydzxz.open.api.v1.response.code.CodeAuditHostsResponse;
 import com.github.yydzxz.open.api.v2.request.code.CodeAuditRequest;
 import com.github.yydzxz.open.api.v2.response.code.CodeAuditResponse;
-import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,11 +27,16 @@ public class ByteDanceV2CodeController {
      */
     @PostMapping("/audit")
     public CodeAuditResponse audit(String appid){
+        CodeAuditHostsResponse auditHostsResponse = byteDanceOpenService.getByteDanceOpenV1ComponentService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramCodeService()
+            .auditHosts();
+
         CodeAuditRequest request = new CodeAuditRequest();
-        request.setHostNames(Arrays.asList("toutiao", "douyin"));
+        request.setHostNames(auditHostsResponse.getHostNames());
         return byteDanceOpenService.getByteDanceOpenV2ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramCodeService()
+            .getByteDanceOpenV2MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV2MiniProgramCodeService()
             .audit(request);
     }
 }

@@ -1,9 +1,9 @@
 package com.yyd.bytedance.open.demo.config;
 
+import com.github.yydzxz.common.http.IByteDanceHttpClient;
+import com.github.yydzxz.common.http.impl.RestTemplateByteDanceHttpClient;
 import com.github.yydzxz.common.redis.IByteDanceRedisOps;
 import com.github.yydzxz.common.redis.RedissonByteDanceRedisOps;
-import com.github.yydzxz.common.service.IByteDanceHttpRequestService;
-import com.github.yydzxz.common.service.impl.RestTemplateByteDanceHttpRequestServiceImpl;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.impl.ByteDanceOpenInRedisConfigStorage;
 import com.github.yydzxz.open.api.impl.ByteDanceOpenServiceImpl;
@@ -41,8 +41,8 @@ public class ByteDanceOpenServiceConfiguration {
      * @return
      */
     @Bean
-    public IByteDanceHttpRequestService getByteDanceHttpRequestService(RestTemplate restTemplate){
-        return new RestTemplateByteDanceHttpRequestServiceImpl(restTemplate);
+    public IByteDanceHttpClient getByteDanceHttpRequestService(RestTemplate restTemplate){
+        return new RestTemplateByteDanceHttpClient(restTemplate);
     }
 
     @Bean
@@ -66,16 +66,16 @@ public class ByteDanceOpenServiceConfiguration {
     /**
      * v1 不支持预设置分账比例 new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService)
      * v2 支持预设置分账比例（建议使用） new ByteDanceOpenV2ComponentServiceImpl(byteDanceOpenService)
-     * @param byteDanceHttpRequestService
+     * @param byteDanceHttpRequestClient
      * @param byteDanceRedisOps
      * @param byteDanceOpenInRedisConfigStorage
      * @return
      */
     @Bean
-    public IByteDanceOpenService getIByteDanceOpenService(IByteDanceHttpRequestService byteDanceHttpRequestService,
+    public IByteDanceOpenService getIByteDanceOpenService(IByteDanceHttpClient byteDanceHttpRequestClient,
         IByteDanceRedisOps byteDanceRedisOps, ByteDanceOpenInRedisConfigStorage byteDanceOpenInRedisConfigStorage){
         IByteDanceOpenService byteDanceOpenService = new ByteDanceOpenServiceImpl();
-        byteDanceOpenService.setByteDanceHttpRequestService(byteDanceHttpRequestService);
+        byteDanceOpenService.setByteDanceHttpClient(byteDanceHttpRequestClient);
         byteDanceOpenService.setByteDanceRedisOps(byteDanceRedisOps);
 
         byteDanceOpenService.setByteDanceOpenV1ComponentService(new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService));

@@ -51,8 +51,8 @@ public class ByteDanceV1InfoController {
     @GetMapping("/info")
     public AppInfoResponse appInfo(String appid){
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramInfoService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
             .getAppInfo();
     }
 
@@ -67,8 +67,8 @@ public class ByteDanceV1InfoController {
         AppQrCodeRequest request = new AppQrCodeRequest();
         BeanUtils.copyProperties(param, request);
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramInfoService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
             .getAppQrCode(request);
     }
 
@@ -81,8 +81,8 @@ public class ByteDanceV1InfoController {
     @GetMapping("/check_app_name")
     public AppCheckAppNameResponse checkAppName(String appid,@RequestParam("app_name") String appName){
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramInfoService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
             .checkAppName(appName);
     }
 
@@ -97,8 +97,8 @@ public class ByteDanceV1InfoController {
         AppModifyAppNameRequest request = new AppModifyAppNameRequest();
         BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramInfoService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
             .modifyAppName(request);
     }
 
@@ -113,8 +113,8 @@ public class ByteDanceV1InfoController {
         AppModifyAppIntroRequest request = new AppModifyAppIntroRequest();
         BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramInfoService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
             .modifyAppIntro(request);
     }
 
@@ -129,8 +129,8 @@ public class ByteDanceV1InfoController {
         AppModifyAppIconRequest request = new AppModifyAppIconRequest();
         BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramInfoService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
             .modifyAppIcon(request);
     }
 
@@ -147,8 +147,8 @@ public class ByteDanceV1InfoController {
         AppModifyServerDomainRequest request = new AppModifyServerDomainRequest();
         BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramInfoService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
             .modifyServerDomain(request);
     }
 
@@ -162,8 +162,8 @@ public class ByteDanceV1InfoController {
         AppModifyWebviewDomainRequest request = new AppModifyWebviewDomainRequest();
         BeanUtils.copyProperties(query, request);
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramInfoService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
             .modifyWebviewDomain(request);
     }
 }

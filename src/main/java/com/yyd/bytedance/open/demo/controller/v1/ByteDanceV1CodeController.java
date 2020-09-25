@@ -7,6 +7,7 @@ import com.github.yydzxz.open.api.v1.response.code.CodeAuditResponse;
 import com.github.yydzxz.open.api.v1.response.code.CodeReleaseResponse;
 import com.github.yydzxz.open.api.v1.response.code.CodeRollbackResponse;
 import com.github.yydzxz.open.api.v1.response.code.CodeUploadResponse;
+import com.github.yydzxz.open.api.v1.response.code.CodeVersionsResponse;
 import com.yyd.bytedance.open.demo.controller.query.code.CodeUploadQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +41,8 @@ public class ByteDanceV1CodeController {
         BeanUtils.copyProperties(param, request);
         request.setExtJson(ByteDanceJsonBuilder.instance().toJson(param.getExtJson()));
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramCodeService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramCodeService()
             .upload(request);
     }
 
@@ -53,8 +54,8 @@ public class ByteDanceV1CodeController {
     @PostMapping("/audit")
     public CodeAuditResponse audit(String appid){
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramCodeService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramCodeService()
             .audit();
     }
 
@@ -66,8 +67,8 @@ public class ByteDanceV1CodeController {
     @PostMapping("/release")
     public CodeReleaseResponse release(String appid){
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramCodeService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramCodeService()
             .release();
     }
 
@@ -79,8 +80,8 @@ public class ByteDanceV1CodeController {
     @PostMapping("/rollback")
     public CodeRollbackResponse rollback(String appid){
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramCodeService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramCodeService()
             .rollback();
     }
 
@@ -91,10 +92,10 @@ public class ByteDanceV1CodeController {
      * @return
      */
     @GetMapping("/versions")
-    public String versions(String appid){
+    public CodeVersionsResponse versions(String appid){
         return byteDanceOpenService.getByteDanceOpenV1ComponentService()
-            .getByteDanceOpenMiniProgramServiceByAppid(appid)
-            .getByteDanceOpenMiniProgramCodeService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramCodeService()
             .versions();
     }
 }
