@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 授权认证v1
- * 不支持预设置分账比例 new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService)
+ * 不支持预设置分账比例
  * @author yangyidian
  * @date 2020/06/28
  **/
