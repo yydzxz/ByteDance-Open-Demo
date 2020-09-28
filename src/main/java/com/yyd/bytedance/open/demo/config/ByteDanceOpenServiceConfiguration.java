@@ -7,7 +7,9 @@ import com.github.yydzxz.common.redis.RedissonByteDanceRedisOps;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.impl.ByteDanceOpenInRedisConfigStorage;
 import com.github.yydzxz.open.api.impl.ByteDanceOpenServiceImpl;
+import com.github.yydzxz.open.api.v1.IByteDanceOpenV1ComponentService;
 import com.github.yydzxz.open.api.v1.impl.ByteDanceOpenV1ComponentServiceImpl;
+import com.github.yydzxz.open.api.v2.IByteDanceOpenV2ComponentService;
 import com.github.yydzxz.open.api.v2.impl.ByteDanceOpenV2ComponentServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RedissonClient;
@@ -76,9 +78,11 @@ public class ByteDanceOpenServiceConfiguration {
         byteDanceOpenService.setByteDanceHttpClient(byteDanceHttpRequestClient);
         byteDanceOpenService.setByteDanceRedisOps(byteDanceRedisOps);
 
-        byteDanceOpenService.setByteDanceOpenV1ComponentService(new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService));
-        byteDanceOpenService.setByteDanceOpenV2ComponentService(new ByteDanceOpenV2ComponentServiceImpl(byteDanceOpenService));
+        IByteDanceOpenV1ComponentService byteDanceOpenV1ComponentService = new ByteDanceOpenV1ComponentServiceImpl(byteDanceOpenService);
+        IByteDanceOpenV2ComponentService byteDanceOpenV2ComponentService = new ByteDanceOpenV2ComponentServiceImpl(byteDanceOpenService, byteDanceOpenV1ComponentService);
 
+        byteDanceOpenService.setByteDanceOpenV1ComponentService(byteDanceOpenV1ComponentService);
+        byteDanceOpenService.setByteDanceOpenV2ComponentService(byteDanceOpenV2ComponentService);
         byteDanceOpenService.setByteDanceOpenConfigStorage(byteDanceOpenInRedisConfigStorage);
         return byteDanceOpenService;
     }

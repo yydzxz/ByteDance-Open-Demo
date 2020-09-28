@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 模版管理相关controller
@@ -64,7 +65,7 @@ public class ByteDanceV1TemplateController {
 
 
     /**
-     * 获取第三方应用的所有模版
+     * 获取第三方平台的所有模版
      * @return
      */
     @GetMapping("/list")
