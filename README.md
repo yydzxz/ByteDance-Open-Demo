@@ -90,7 +90,7 @@
   - 然后去[字节跳动第三方平台](https://open.microapp.bytedance.com/tplist)将刚才创建的小程序的appid添加到【授权测试小程序列表】，以便测试
   ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/QQ20200717-210508%402x.png?raw=true)
   
-  - 浏览器中输入授权地址: [https://你的公网地址或者ngrok生成的公网地址/bytedance/auth/goto_auth_url_show]()
+  - 浏览器中输入授权地址: [https://你的公网地址或者ngrok生成的公网地址/bytedance/v1/auth/goto_auth_url_show]()
   ### 模版管理
   - [获取第三方平台的草稿列表](http://127.0.0.1:8080/bytedance/v1/template/draft/list)
   - [获取第三方平台的模版列表](http://127.0.0.1:8080/bytedance/v1/template/list)
