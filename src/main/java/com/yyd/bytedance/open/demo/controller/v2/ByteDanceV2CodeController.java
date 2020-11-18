@@ -33,7 +33,7 @@ public class ByteDanceV2CodeController {
             .auditHosts();
 
         CodeAuditRequest request = new CodeAuditRequest();
-        request.setHostNames(auditHostsResponse.getHostNames());
+        request.setHostNames(auditHostsResponse.getData().getHostNames());
         return byteDanceOpenService.getByteDanceOpenV2ComponentService()
             .getByteDanceOpenV2MiniProgramServiceByAppid(appid)
             .getByteDanceOpenV2MiniProgramCodeService()
