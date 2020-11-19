@@ -1,7 +1,6 @@
 package com.yyd.bytedance.open.demo.controller;
 
 import com.github.yydzxz.open.message.ByteDanceOpenMessage;
-import com.github.yydzxz.open.message.ByteDanceOpenMessageResult;
 import com.github.yydzxz.open.message.ByteDanceOpenMessageRouter;
 import com.github.yydzxz.open.util.SignUtil;
 import com.yyd.bytedance.open.demo.config.ByteDanceOpenProperties;
@@ -39,8 +38,7 @@ public class ByteDanceNotifyController {
     @PostMapping("/receive_ticket")
     public String receiveTicket(@RequestBody ReceiveTicketQuery receiveTicketQuery) {
         log.info("接收字节跳动请求：{}",receiveTicketQuery);
-        handleMessage(receiveTicketQuery);
-        return "success";
+        return handleMessage(receiveTicketQuery);
     }
 
     /**
@@ -51,8 +49,7 @@ public class ByteDanceNotifyController {
     @RequestMapping("/{appid}/callback")
     public String callback(@PathVariable("appid") String appid, @RequestBody ReceiveTicketQuery receiveTicketQuery){
         log.info("小程序[{}]接收到消息与事件推送: {}", appid, receiveTicketQuery);
-        handleMessage(receiveTicketQuery);
-        return "success";
+        return handleMessage(receiveTicketQuery);
     }
 
 
@@ -75,7 +72,6 @@ public class ByteDanceNotifyController {
             log.error(e.getMessage(), e);
             return "failed";
         }
-        ByteDanceOpenMessageResult result = byteDanceOpenMessageRouter.route(message);
-        return result.getDefaultResult();
+        return byteDanceOpenMessageRouter.route(message).getDefaultResult();
     }
 }
