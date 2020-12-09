@@ -8,12 +8,14 @@ import com.github.yydzxz.open.api.v1.request.appinfo.AppModifyServerDomainReques
 import com.github.yydzxz.open.api.v1.request.appinfo.AppModifyWebviewDomainRequest;
 import com.github.yydzxz.open.api.v1.request.appinfo.AppQrCodeRequest;
 import com.github.yydzxz.open.api.v1.response.appinfo.AppCheckAppNameResponse;
+import com.github.yydzxz.open.api.v1.response.appinfo.AppCreditScoreResponse;
 import com.github.yydzxz.open.api.v1.response.appinfo.AppInfoResponse;
 import com.github.yydzxz.open.api.v1.response.appinfo.AppModifyAppIconResponse;
 import com.github.yydzxz.open.api.v1.response.appinfo.AppModifyAppIntroResponse;
 import com.github.yydzxz.open.api.v1.response.appinfo.AppModifyAppNameResponse;
 import com.github.yydzxz.open.api.v1.response.appinfo.AppModifyServerDomainResponse;
 import com.github.yydzxz.open.api.v1.response.appinfo.AppModifyWebviewDomainResponse;
+import com.github.yydzxz.open.api.v1.response.appinfo.AppQualityRatingResponse;
 import com.yyd.bytedance.open.demo.controller.query.info.AppModifyAppIconQuery;
 import com.yyd.bytedance.open.demo.controller.query.info.AppModifyAppIntroQuery;
 import com.yyd.bytedance.open.demo.controller.query.info.AppModifyAppNameQuery;
@@ -165,5 +167,31 @@ public class ByteDanceV1InfoController {
             .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
             .getByteDanceOpenV1MiniProgramInfoService()
             .modifyWebviewDomain(request);
+    }
+
+    /**
+     * 查询质量评级信息
+     * @param appid
+     * @return
+     */
+    @GetMapping("/quality_rating")
+    public AppQualityRatingResponse qualityRating(String appid){
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
+            .qualityRating();
+    }
+
+    /**
+     * 查询信用分分值
+     * @param appid
+     * @return
+     */
+    @GetMapping("/credit_score")
+    public AppCreditScoreResponse creditScore(String appid){
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService()
+            .getByteDanceOpenV1MiniProgramServiceByAppid(appid)
+            .getByteDanceOpenV1MiniProgramInfoService()
+            .creditScore();
     }
 }

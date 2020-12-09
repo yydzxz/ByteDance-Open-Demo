@@ -37,7 +37,7 @@ public class ByteDanceOpenServiceConfiguration {
      * <b>使用OkHttpClient + gson</b>
      * new OkHttpClientByteDanceHttpRequestServiceImpl(new GsonSerializer());
      * <b>使用resttemplate和默认的json工具（根据pom中引用的jar包自动选择）</b>
-     * new RestTemplateByteDanceHttpRequestServiceImpl(restTemplate);
+     * new RestTemplateByteDanceHttpRequestServiceImpl();
      * <b>使用 okhttpclient和默认的json工具（根据pom中引用的jar包自动选择</b>
      * new OkHttpClientByteDanceHttpRequestServiceImpl()
      * @return

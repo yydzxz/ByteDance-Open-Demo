@@ -99,9 +99,6 @@
   - 可以在`EventHandlerConfiguration`配置用于处理相应事件的handler
 
 ## 其他注意事项
-  - 字节跳动授权流程中的小bug。从gif中可以看到，第一次授权跳转到字节跳动页面时，显示 **授权信息异常** 。必须要管理员先登录小程序管理后台，授权流程才能正确进行。
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/gifs/auth_bug.gif?raw=true)
-  ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/master/images/1991595100618_.pic_hd.jpg?raw=true)
   - 加解密异常 java.security.InvalidKeyException: Illegal key size
     - 因为秘钥长度超过128位,在某些jdk版本中默认只支持128位以下的秘钥
     - 解决方案为使用无限制的策略文件替换 $JAVA_HOME\jre\lib\security 下的策略文件
