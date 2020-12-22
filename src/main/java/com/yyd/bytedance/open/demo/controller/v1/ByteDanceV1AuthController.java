@@ -2,6 +2,7 @@ package com.yyd.bytedance.open.demo.controller.v1;
 
 import com.github.yydzxz.common.error.ByteDanceErrorException;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
+import com.github.yydzxz.open.api.v1.response.auth.AuthAppListResponse;
 import com.github.yydzxz.open.api.v1.response.auth.GetAuthorizerAccessTokenResponse;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
@@ -58,5 +59,16 @@ public class ByteDanceV1AuthController {
     @GetMapping("/{appid}/authorizer_access_token")
     public String getAuthorizerAccessToken(@PathVariable("appid") String appid){
         return byteDanceOpenService.getByteDanceOpenConfigStorage().getAuthorizerAccessToken(appid);
+    }
+
+    /**
+     * 查询所有授权给第三方平台的小程序列表
+     * @param page
+     * @param size
+     * @return
+     */
+    @GetMapping("/auth_app_list")
+    public AuthAppListResponse authAppList(Integer page, Integer size){
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService().authAppList(page, size);
     }
 }

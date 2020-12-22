@@ -23,7 +23,7 @@
     <dependency>
       <groupId>com.github.yydzxz</groupId>
       <artifactId>bytedance-open</artifactId>
-      <version>3.3.4</version>
+      <version>3.4.1</version>
     </dependency>
 
     <dependency>
