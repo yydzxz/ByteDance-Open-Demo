@@ -7,8 +7,8 @@ import lombok.Data;
  * @date 2020/08/10
  **/
 @Data
-public class ByteDanceOpenDemoResponse {
+public class ByteDanceOpenDemoResponse<T> {
     private String msg;
     private Integer code;
-    private Object data;
+    private T data;
 }

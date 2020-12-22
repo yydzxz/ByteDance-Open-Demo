@@ -1,7 +1,7 @@
 spring:
   redis:
     redisson:
-      config: classpath:redisson-single-docker-dev.yml
+      file: classpath:redisson-single-docker-dev.yml
 
 bytedance:
   open:

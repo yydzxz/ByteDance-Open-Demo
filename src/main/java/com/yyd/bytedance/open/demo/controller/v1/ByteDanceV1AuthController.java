@@ -68,7 +68,9 @@ public class ByteDanceV1AuthController {
      * @return
      */
     @GetMapping("/auth_app_list")
-    public AuthAppListResponse authAppList(Integer page, Integer size){
+    public AuthAppListResponse authAppList(
+        @RequestParam(required = false, defaultValue = "1") Integer page,
+        @RequestParam(required = false, defaultValue = "50")Integer size){
         return byteDanceOpenService.getByteDanceOpenV1ComponentService().authAppList(page, size);
     }
 }

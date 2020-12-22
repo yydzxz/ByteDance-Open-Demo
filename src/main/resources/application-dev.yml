@@ -1,7 +1,7 @@
 spring:
   redis:
     redisson:
-      config: classpath:redisson-single-dev.yml
+      file: classpath:redisson-single-dev.yml
 
 bytedance:
   open:
