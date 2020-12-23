@@ -1,7 +1,7 @@
 spring:
   redis:
     redisson:
-      config: classpath:redisson-single-unittest.yml
+      file: classpath:redisson-single-unittest.yml
 
 bytedance:
   open:
