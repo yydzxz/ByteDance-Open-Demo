@@ -99,7 +99,6 @@
   - 可以在`EventHandlerConfiguration`配置用于处理相应事件的handler
   
 ## 单元测试
-### 装备工作
 1. 配置`src/test/resources/application-unittest.yml`中的
 ```yml
 bytedance:
