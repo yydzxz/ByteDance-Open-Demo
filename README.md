@@ -97,6 +97,27 @@
   
 ## 事件推送处理
   - 可以在`EventHandlerConfiguration`配置用于处理相应事件的handler
+  
+## 单元测试
+### 装备工作
+1. 配置`src/test/resources/application-unittest.yml`中的
+```yml
+bytedance:
+  open:
+    componentAppId: ""
+    componentSecret: ""
+    componentToken: ""
+    componentAesKey: ""
+```
+2. [进行小程序授权](#网页授权)
+
+3. 将刚才授权的小程序appid配置到`src/test/resources/application-unittest.yml`中的
+```yml
+test-app-info:
+  appid: ""
+```
+4. 运行单元测试
+
 
 ## 其他注意事项
   - 加解密异常 java.security.InvalidKeyException: Illegal key size
