@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/07/06
  **/
 @RestController
-@RequestMapping("/bytedance/v1/app")
+@RequestMapping("/bytedance/v1/miniprogram")
 public class ByteDanceV1InfoController {
 
     @Autowired

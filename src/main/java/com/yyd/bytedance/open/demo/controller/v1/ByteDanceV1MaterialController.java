@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
  **/
 @Slf4j
 @RestController
-@RequestMapping("/bytedance/v1/miniprogram/material")
+@RequestMapping("/bytedance/v1/material")
 public class ByteDanceV1MaterialController {
 
     @Autowired
