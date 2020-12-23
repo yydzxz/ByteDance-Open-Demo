@@ -2,6 +2,7 @@ package com.yyd.bytedance.open.demo.controller.v1;
 
 import com.github.yydzxz.open.api.v1.response.auth.AuthAppListResponse;
 import com.yyd.bytedance.open.demo.config.ByteDanceOpenDemoResponse;
+import com.yyd.bytedance.open.demo.config.TestAppInfoProperties;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,8 @@ class ByteDanceV1AuthControllerTest {
     @LocalServerPort
     private int port;
 
-    private String appid = "tt32f84445adc234b8";
+    @Autowired
+    private TestAppInfoProperties testAppInfoProperties;
 
     @Test
     void getAuthorizerAccessToken() {
