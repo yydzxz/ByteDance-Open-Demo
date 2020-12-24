@@ -40,6 +40,8 @@ class ByteDanceV1OperationControllerTest {
 
         OperationVideoApplicationStatusResponse response = responseEntity.getBody().getData();
         assertThat(response.getErrno()).isEqualTo(0);
+        assertThat(response.getData().getStatus()).isNotNull();
+        assertThat(response.getData().getStatus()).isBetween(1, 6);
         //「短视频挂载」能力申请状态对应的原因
         //如果状态是1（申请中）、2（申请通过）、5（可申请），则 reason 为空字符串
         if(response.getData().getStatus() == 1 || response.getData().getStatus() == 2 || response.getData().getStatus() == 5){
@@ -57,6 +59,8 @@ class ByteDanceV1OperationControllerTest {
 
         OperationLiveApplicationStatusResponse response = responseEntity.getBody().getData();
         assertThat(response.getErrno()).isEqualTo(0);
+        assertThat(response.getData().getStatus()).isNotNull();
+        assertThat(response.getData().getStatus()).isBetween(0, 6);
         //「抖音直播组件」申请状态对应的原因
         //如果状态是0（默认值）、1（可申请）、3（申请中）、4（申请通过），则 reason 为空字符串
         if(response.getData().getStatus() == 0 || response.getData().getStatus() == 1 || response.getData().getStatus() == 3 || response.getData().getStatus() == 4){
@@ -74,6 +78,8 @@ class ByteDanceV1OperationControllerTest {
 
         OperationPhoneNumberApplicationStatusResponse response = responseEntity.getBody().getData();
         assertThat(response.getErrno()).isEqualTo(0);
+        assertThat(response.getData().getStatus()).isNotNull();
+        assertThat(response.getData().getStatus()).isBetween(0, 6);
         //「获取用户手机号」能力申请状态对应的原因
         //如果状态是0（默认值）、1（可申请）、3（申请中）、4（申请通过），则 reason 为空字符串
         if(response.getData().getStatus() == 0 || response.getData().getStatus() == 1 || response.getData().getStatus() == 3 || response.getData().getStatus() == 4){

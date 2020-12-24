@@ -3,6 +3,7 @@ package com.yyd.bytedance.open.demo.controller.v1;
 import com.github.yydzxz.open.api.v1.response.auth.AuthAppListResponse;
 import com.yyd.bytedance.open.demo.config.ByteDanceOpenDemoResponse;
 import com.yyd.bytedance.open.demo.config.TestAppInfoProperties;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Slf4j
 @SpringBootTest( webEnvironment = WebEnvironment.RANDOM_PORT, properties = "spring.profiles.active=unittest")
 class ByteDanceV1AuthControllerTest {
 
@@ -28,8 +30,13 @@ class ByteDanceV1AuthControllerTest {
     @Autowired
     private TestAppInfoProperties testAppInfoProperties;
 
+    @DisplayName("获取小程序的接口调用凭据")
     @Test
     void getAuthorizerAccessToken() {
+        ParameterizedTypeReference<String> typeRef = new ParameterizedTypeReference<String>() {};
+        ResponseEntity<String> responseEntity = restTemplate.exchange("http://127.0.0.1:" + port + "/bytedance/v1/auth/" + testAppInfoProperties.getAppid() + "/authorizer_access_token", HttpMethod.GET, null, typeRef);
+        log.info(responseEntity.getBody());
+        assertThat(responseEntity.getBody()).hasSizeGreaterThan(100);
     }
 
     @DisplayName("查询所有授权给第三方平台的小程序列表")
