@@ -48,10 +48,40 @@ class ByteDanceV1InfoControllerTest {
 
     }
 
-    @DisplayName("小程序名称检测")
+    @DisplayName("小程序名称检测-名字正常")
     @Test
     void checkAppName() {
+        String appName = "我的杂货铺";
+        ParameterizedTypeReference<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>> typeRef = new ParameterizedTypeReference<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>>() {};
+        ResponseEntity<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>> responseEntity = restTemplate.exchange("http://127.0.0.1:" + port + "/bytedance/v1/miniprogram/check_app_name?appid=" + testAppInfoProperties.getAppid() + "&app_name=" + appName, HttpMethod.GET, null, typeRef);
+        AppCheckAppNameResponse response = responseEntity.getBody().getData();
+        assertThat(response.getErrno()).isEqualTo(0);
+    }
+
+    @DisplayName("小程序名称检测-名字有特殊字符")
+    @Test
+    void checkAppName2() {
         String appName = "%^&*(";
+        ParameterizedTypeReference<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>> typeRef = new ParameterizedTypeReference<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>>() {};
+        ResponseEntity<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>> responseEntity = restTemplate.exchange("http://127.0.0.1:" + port + "/bytedance/v1/miniprogram/check_app_name?appid=" + testAppInfoProperties.getAppid() + "&app_name=" + appName, HttpMethod.GET, null, typeRef);
+        AppCheckAppNameResponse response = responseEntity.getBody().getData();
+        assertThat(response.getErrno()).isEqualTo(21001);
+    }
+
+    @DisplayName("小程序名称检测-名字太短")
+    @Test
+    void checkAppName3() {
+        String appName = "aaa";
+        ParameterizedTypeReference<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>> typeRef = new ParameterizedTypeReference<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>>() {};
+        ResponseEntity<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>> responseEntity = restTemplate.exchange("http://127.0.0.1:" + port + "/bytedance/v1/miniprogram/check_app_name?appid=" + testAppInfoProperties.getAppid() + "&app_name=" + appName, HttpMethod.GET, null, typeRef);
+        AppCheckAppNameResponse response = responseEntity.getBody().getData();
+        assertThat(response.getErrno()).isEqualTo(21001);
+    }
+
+    @DisplayName("小程序名称检测-名字太长")
+    @Test
+    void checkAppName4() {
+        String appName = "aaaaaaaaaaaaaaaaaaaaa";
         ParameterizedTypeReference<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>> typeRef = new ParameterizedTypeReference<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>>() {};
         ResponseEntity<ByteDanceOpenDemoResponse<AppCheckAppNameResponse>> responseEntity = restTemplate.exchange("http://127.0.0.1:" + port + "/bytedance/v1/miniprogram/check_app_name?appid=" + testAppInfoProperties.getAppid() + "&app_name=" + appName, HttpMethod.GET, null, typeRef);
         AppCheckAppNameResponse response = responseEntity.getBody().getData();
