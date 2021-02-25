@@ -3,6 +3,7 @@ package com.yyd.bytedance.open.demo.controller.v1;
 import com.github.yydzxz.common.error.ByteDanceErrorException;
 import com.github.yydzxz.open.api.IByteDanceOpenService;
 import com.github.yydzxz.open.api.v1.response.auth.AuthAppListResponse;
+import com.github.yydzxz.open.api.v1.response.auth.AuthRetrieveResponse;
 import com.github.yydzxz.open.api.v1.response.auth.GetAuthorizerAccessTokenResponse;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
@@ -72,5 +73,10 @@ public class ByteDanceV1AuthController {
         @RequestParam(required = false, defaultValue = "1") Integer page,
         @RequestParam(required = false, defaultValue = "50")Integer size){
         return byteDanceOpenService.getByteDanceOpenV1ComponentService().authAppList(page, size);
+    }
+
+    @GetMapping("/{appid}/auth_app_list")
+    public AuthRetrieveResponse authAppList(@PathVariable("appid") String appid){
+        return byteDanceOpenService.getByteDanceOpenV1ComponentService().authRetrieve(appid);
     }
 }
