@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -75,8 +76,8 @@ public class ByteDanceV1AuthController {
         return byteDanceOpenService.getByteDanceOpenV1ComponentService().authAppList(page, size);
     }
 
-    @GetMapping("/{appid}/auth_app_list")
-    public AuthRetrieveResponse authAppList(@PathVariable("appid") String appid){
+    @PostMapping("/{appid}/auth_retrieve")
+    public AuthRetrieveResponse authRetrieve(@PathVariable("appid") String appid){
         return byteDanceOpenService.getByteDanceOpenV1ComponentService().authRetrieve(appid);
     }
 }
