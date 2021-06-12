@@ -1,5 +1,5 @@
 # ByteDance-Open-Demo
-- [字节跳动小程序第三方接入文档](https://bytedance.feishu.cn/docs/doccnYmtnRy6APhKiTfYgW#)
+- [字节跳动小程序第三方接入文档](https://microapp.bytedance.com/docs/zh-CN/mini-app/thirdparty/API/auth-app/intro/)
 - 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例. 大部分参数和url跟字节跳动open api保持相同, 方便对照文档快速理解使用, 剩余的按照RESTful命名风格
 - 提供了docker启动方式，包含redis和ngrok服务
 - 当前页面上的图片如果裂了，可以[尝试修改host](https://github.com/labuladong/fucking-algorithm/issues/271#issuecomment-620470589),如果还不行那么就需要科学上网o(￣ヘ￣o＃)，或者clone后查看images/gifs文件夹下对应的图片
