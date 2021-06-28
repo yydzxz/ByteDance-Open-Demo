@@ -36,6 +36,16 @@ public class ByteDanceOpenProperties {
 
     private ServerDomain serverDomain;
 
+    /**
+     * 支付配置 salt
+     */
+    private String paySalt;
+
+    /**
+     * 支付配置 商户号
+     */
+    private String mchNo;
+
     @Data
     public static class ServerDomain{
         private List<String> request;
