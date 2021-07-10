@@ -22,4 +22,13 @@ public class GlobalExceptionHandler {
         return response;
     }
 
+    @ExceptionHandler(Exception.class)
+    public ByteDanceOpenDemoResponse handleException(Exception exception){
+        ByteDanceOpenDemoResponse response = new ByteDanceOpenDemoResponse();
+        response.setCode(500);
+        response.setMsg("服务内部错误");
+        response.setData(exception.getMessage());
+        return response;
+    }
+
 }
