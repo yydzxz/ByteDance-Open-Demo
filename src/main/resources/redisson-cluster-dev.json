@@ -21,7 +21,7 @@
     "masterConnectionPoolSize":64,
     "readMode": "MASTER",
     "nodeAddresses":[
-      "redis://172.17.0.2:6379"
+      "redis://127.0.0.1:6379"
     ],
     "scanInterval":1000
   },

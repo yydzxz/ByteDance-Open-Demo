@@ -1,15 +1,14 @@
-server:
-  port: 8762
-  servlet:
-    context-path: /miniprograms
 spring:
   redis:
     redisson:
-      config: classpath:redisson-single-dev.yml
+      file: classpath:redisson-single-dev.yml
 
 bytedance:
   open:
-    componentAppId: "ttb7f5c14828df1aeb"
-    componentSecret: "4c24b48112bc5c4721ef42720bf5487ec2a63c9d"
-    componentToken: "asdfgzxcv"
-    componentAesKey: "1234567890123456789012345678901234567890qwe"
+    componentAppId: "your componentAppId"
+    componentSecret: "your componentSecret"
+    componentToken: "your componentToken"
+    componentAesKey: "your componentAesKey"
+    serverDomain:
+      request:
+        - "your.server.domain"

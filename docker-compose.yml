@@ -1,0 +1,41 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    depends_on:
+      - "redis"
+      - "ngrok"
+    environment:
+      - "bytedance.open.componentAppId=your componentAppId"
+      - "bytedance.open.componentSecret=your componentSecret"
+      - "bytedance.open.componentToken=your componentToken"
+      - "bytedance.open.componentAesKey=your componentAesKey"
+      - "REDIS_HOST=bytedance-open-demo_redis_1"
+    networks:
+      - bytedanceNet
+  redis:
+    build:
+      context: ./docker/redis
+      dockerfile: Dockerfile
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+    networks:
+      - bytedanceNet
+  ngrok:
+    image: "wernight/ngrok"
+    command: ["ngrok", "http", "bytedance-open-demo_web_1:8080"]
+    ports:
+      - "4040:4040"
+    expose:
+      - "4040"
+    networks:
+      - bytedanceNet
+
+networks:
+  bytedanceNet:

@@ -1,4 +1,4 @@
-package com.yyd.bytedance.open.demo.controller.query;
+package com.yyd.bytedance.open.demo.controller.query.auth;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;

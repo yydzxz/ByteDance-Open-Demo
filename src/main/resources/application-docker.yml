@@ -1,0 +1,10 @@
+spring:
+  redis:
+    redisson:
+      file: classpath:redisson-single-docker-dev.yml
+
+bytedance:
+  open:
+    serverDomain:
+      request:
+        - "your.server.domain"

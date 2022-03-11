@@ -6,14 +6,14 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.3.1.RELEASE</version>
+    <version>2.4.1</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.yyd</groupId>
   <artifactId>bytedance-open-demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>bytedance-open-demo</name>
-  <description>Demo project for Spring Boot</description>
+  <description>Demo project for ByteDanceOpen SDK</description>
 
   <properties>
     <java.version>1.8</java.version>
@@ -21,14 +21,19 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.yyd</groupId>
+      <groupId>com.github.yydzxz</groupId>
       <artifactId>bytedance-open</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>4.0.6</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
 
     <dependency>
@@ -46,7 +51,7 @@
     <dependency>
       <groupId>org.redisson</groupId>
       <artifactId>redisson-spring-boot-starter</artifactId>
-      <version>3.11.5</version>
+      <version>3.12.0</version>
     </dependency>
 
     <dependency>
@@ -54,6 +59,32 @@
       <artifactId>lombok</artifactId>
       <version>1.18.12</version>
     </dependency>
+
+    <!-- json工具包 start 可注释掉不需要的-->
+<!--    <dependency>-->
+<!--      <groupId>com.alibaba</groupId>-->
+<!--      <artifactId>fastjson</artifactId>-->
+<!--      <version>1.2.67</version>-->
+<!--    </dependency>-->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
+    </dependency>
+    <!-- json工具包 end -->
+
+    <!-- http客户端 start 可注释掉不需要的-->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>4.8.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jodd</groupId>
+      <artifactId>jodd-http</artifactId>
+      <version>5.1.5</version>
+    </dependency>
+    <!-- http客户端 end-->
   </dependencies>
 
   <build>
