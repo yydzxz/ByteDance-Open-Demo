@@ -1,3 +1,5 @@
+
+
 # ByteDance-Open-Demo
 - [字节跳动小程序第三方接入文档](https://microapp.bytedance.com/docs/zh-CN/mini-app/thirdparty/API/update)
 - 该demo为[ByteDanceOpen SDK](https://github.com/yydzxz/ByteDanceOpen)用法示例. 大部分参数和url跟字节跳动open api保持相同, 方便对照文档快速理解使用, 剩余的按照RESTful命名风格
@@ -8,7 +10,7 @@
 
 ## 申请账号
 - 先在[字节跳动小程序管理后台](https://microapp.bytedance.com)注册一个账号。
-- [字节跳动小程序管理后台](https://microapp.bytedance.com)账号自带一个[字节跳动第三方平台](https://open.microapp.bytedance.com)账号（登录小程序管理后台后，进入第三方平台直接就是登录状态），创建一个第三平台后，将第三方平台的相关数据填入
+- [字节跳动小程序管理后台](https://microapp.bytedance.com)账号自带一个[字节跳动第三方平台](https://open.microapp.bytedance.com)账号（登录小程序管理后台后，进入第三方平台直接就是登录状态），创建一个第三方平台后，将第三方平台的相关数据填入
 `application-dev.yml`
 ![image](https://github.com/yydzxz/ByteDance-Open-Demo/blob/dev/images/QQ20200714-122557%402x.png?raw=true)
     
